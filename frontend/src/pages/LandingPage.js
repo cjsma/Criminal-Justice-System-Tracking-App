@@ -1,6 +1,6 @@
-import React from "react";
-import "./LandngPage.css";
-import { FaEnvelope, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import React from 'react';
+import './LandingPage.css';
+import { FaEnvelope, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
 function LandingPage() {
   return (
@@ -90,7 +90,7 @@ function LandingPage() {
             <FaPhoneAlt className="icon" /> +27 71 234 5678
           </p>
           <p>
-            <FaWhatsapp className="icon" />{" "}
+            <FaWhatsapp className="icon" />{' '}
             <a
               href="https://wa.me/27712345678"
               target="_blank"
