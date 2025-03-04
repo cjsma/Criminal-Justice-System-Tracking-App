@@ -8,6 +8,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element ={<LandingPage/>}/>
         <Route path="/missing-person" element={<MissingPerson />} />
         <Route path="/correctional-service" element={<CorrectionalService />} />
       </Routes>
