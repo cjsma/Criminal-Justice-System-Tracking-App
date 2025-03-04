@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Cases from './pages/Cases';
 import WantedBases from './pages/WantedBases';
 import MissingPerson from './pages/MissingPerson';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/wanted" element={<WantedBases />} />
           <Route path="/missingPerson" element={<MissingPerson />} />
         </Routes>
+        <Footer />
       </Router>
     </AuthProvider>
   );
