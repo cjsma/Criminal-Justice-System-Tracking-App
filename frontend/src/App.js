@@ -8,6 +8,8 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<LandingPage />} />{' '}
+        {/* ✅ Fix: Add this line */}
         <Route path="/missing-person" element={<MissingPerson />} />
         <Route path="/correctional-service" element={<CorrectionalService />} />
       </Routes>
