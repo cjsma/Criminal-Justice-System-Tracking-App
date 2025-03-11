@@ -13,7 +13,6 @@ function App() {
   return (
     <AuthProvider>
       {' '}
-      {/* Wrap the Router with AuthProvider */}
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -23,6 +22,7 @@ function App() {
           <Route path="/cases" element={<Cases />} />
           <Route path="/wanted" element={<WantedBases />} />
           <Route path="/missingPerson" element={<MissingPerson />} />
+          
         </Routes>
         <Footer />
       </Router>
