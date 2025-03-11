@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Use Link for navigation
 import './LandingPage.css';
 
 function LandingPage() {
@@ -19,12 +20,12 @@ function LandingPage() {
             seeking justice and healing.
           </p>
           <div className="hero-buttons">
-            <a href="/login" className="btn-secondary">
+            <Link to="/login" className="btn-secondary">
               Log In
-            </a>
-            <a href="/signup" className="btn-primary">
+            </Link>
+            <Link to="/signup" className="btn-primary">
               Sign Up
-            </a>
+            </Link>
           </div>
         </div>
       </header>
