@@ -1,0 +1,29 @@
+/* src/styles/GeneralUserDashboard.css */
+.general-user-dashboard {
+  padding: 20px;
+}
+
+.cases-list {
+  margin-top: 20px;
+}
+
+.case-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.document-upload {
+  margin: 10px 0;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
