@@ -1,0 +1,295 @@
+Base styles
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    color: white;
+    background: url("https://i.imgur.com/dQFt6o8.jpeg") center center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .correctional-service-page {
+    text-align: center;
+    width: 100vw;
+    max-width: 100%;
+    padding: 2vw; /* Reduced padding for better fit */
+    overflow-y: auto;
+    background: transparent;
+    border: 4px solid black; /* Black line box */
+    border-radius: 10px; /* Optional: Adds rounded corners to the box */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Adjusted margin for larger logo */
+  }
+  
+  img.logo {
+    height: 15vh; /* Adjusted logo size */
+    object-fit: contain;
+  }
+  
+  h1 {
+    font-size: 2.5vw; /* Reduced heading size */
+    margin-bottom: 10px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  form label {
+    font-size: 14px; /* Reduced font size for labels */
+    margin: 6px 0;
+  }
+  
+  form input,
+  form select {
+    width: 90%;
+    padding: 8px; /* Reduced padding for smaller fields */
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px; /* Reduced font size for inputs */
+  }
+  
+  form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px; /* Reduced button font size */
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Breakpoints */
+  
+  /* For devices smaller than 1024px (Tablets) */
+  @media (max-width: 1024px) {
+    .correctional-service-page {
+      width: 90vw;
+      padding: 4vw;
+    }
+  
+    img.logo {
+      height: 18vh;
+    }
+  
+    h1 {
+      font-size: 5vw;
+    }
+  
+    form label {
+      font-size: 12px;
+    }
+  
+    form input,
+    form select {
+      font-size: 12px;
+    }
+  
+    form button {
+      font-size: 12px;
+    }
+  }
+  
+  /* For devices smaller than 768px (Mobile Devices) */
+  @media (max-width: 768px) {
+    body {
+      height: auto;
+      padding: 10px;
+    }
+  
+    .correctional-service-page {
+      width: 95vw;
+      padding: 7vw;
+    }
+  
+    img.logo {
+      height: 20vh;
+    }
+  
+    h1 {
+      font-size: 7vw;
+    }
+  
+    form label {
+      font-size: 12px;
+    }
+  
+    form input,
+    form select {
+      font-size: 12px;
+    }
+  
+    form button {
+      font-size: 12px;
+    }
+  }
+  
+  /* For very small screens like phones (Portrait mode) */
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+  
+    .correctional-service-page {
+      width: 100vw;
+      padding: 10px;
+    }
+  
+    img.logo {
+      height: 25vh;
+    }
+  
+    h1 {
+      font-size: 9vw;
+    }
+  
+    form label {
+      font-size: 10px;
+    }
+  
+    form input,
+    form select {
+      font-size: 10px;
+    }
+  
+    form button {
+      font-size: 10px;
+    }
+  }
+  
+  /* For larger screens (Desktops) */
+  @media (min-width: 1024px) {
+    .correctional-service-page {
+      width: 70vw;
+      padding: 2vw;
+    }
+  
+    img.logo {
+      height: 18vh;
+    }
+  
+    h1 {
+      font-size: 2.5vw; /* Further reduced font size */
+    }
+  
+    form label {
+      font-size: 12px;
+    }
+  
+    form input,
+    form select {
+      font-size: 12px;
+    }
+  
+    form button {
+      font-size: 12px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+  /* PoliceOfficerDashboard.css */ 
+
+  body {
+    background: url("https://i.imgur.com/dQFt6o8.jpeg") center center no-repeat;
+    background-size: cover;
+  }
+.correctional-service-page {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 100px;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+  
