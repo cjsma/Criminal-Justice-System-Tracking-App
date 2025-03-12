@@ -1,0 +1,154 @@
+/* src/ListMissingPersons.css */
+
+/* Container for the entire component */
+.list-missing-persons-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.list-missing-persons-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Loading and Error Messages */
+.list-missing-persons-container .loading,
+.list-missing-persons-container .error-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin: 20px 0;
+}
+
+.list-missing-persons-container .error-message {
+  color: #ff4d4d;
+}
+
+/* List of Missing Persons */
+.list-missing-persons-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-missing-persons-container li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.list-missing-persons-container li:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Person Details */
+.list-missing-persons-container li strong {
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+.list-missing-persons-container li p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Photo Styling */
+.list-missing-persons-container .photo-container {
+  margin-top: 10px;
+}
+
+.list-missing-persons-container .photo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Documents Styling */
+.list-missing-persons-container .documents-container {
+  margin-top: 10px;
+}
+
+.list-missing-persons-container .documents-container h4 {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.list-missing-persons-container .documents-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-missing-persons-container .documents-container li {
+  margin-bottom: 5px;
+}
+
+.list-missing-persons-container .documents-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.list-missing-persons-container .documents-container a:hover {
+  text-decoration: underline;
+}
+
+/* Button Styling */
+.list-missing-persons-container button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list-missing-persons-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .list-missing-persons-container {
+    padding: 10px;
+  }
+
+  .list-missing-persons-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .list-missing-persons-container li {
+    padding: 10px;
+  }
+
+  .list-missing-persons-container li strong {
+    font-size: 1rem;
+  }
+
+  .list-missing-persons-container li p {
+    font-size: 0.9rem;
+  }
+
+  .list-missing-persons-container button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

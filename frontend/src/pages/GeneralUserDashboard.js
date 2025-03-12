@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { auth, db } from '../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 import AddCaseForm from '../components/AddCaseForm'; // Import the AddCaseForm component
 
 function GeneralUserDashboard() {
+  const navigate = useNavigate();
   const [cases, setCases] = useState([]);
   const [showAddCaseForm, setShowAddCaseForm] = useState(false);
 
@@ -32,10 +34,15 @@ function GeneralUserDashboard() {
     <div className="general-user-dashboard">
       <h1>General User Dashboard</h1>
 
-      {/* Button to show the Add Case form */}
-      <button onClick={() => setShowAddCaseForm(!showAddCaseForm)}>
-        {showAddCaseForm ? 'Cancel' : 'Add New Case'}
-      </button>
+      {/* Buttons for Adding a Case and Reporting a Missing Person */}
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+        <button onClick={() => setShowAddCaseForm(!showAddCaseForm)}>
+          {showAddCaseForm ? 'Cancel' : 'Add New Case'}
+        </button>
+        <button onClick={() => navigate('/missingPerson')}>
+          Missing Person
+        </button>
+      </div>
 
       {/* Render the AddCaseForm if showAddCaseForm is true */}
       {showAddCaseForm && <AddCaseForm />}

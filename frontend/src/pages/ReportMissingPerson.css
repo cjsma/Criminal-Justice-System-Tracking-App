@@ -1,0 +1,117 @@
+/* src/ReportMissingPerson.css */
+
+/* Container for the entire component */
+.report-missing-person-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.report-missing-person-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Error Message */
+.report-missing-person-container .error-message {
+  color: #ff4d4d;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* Form Styling */
+.report-missing-person-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input and Textarea Styling */
+.report-missing-person-container input,
+.report-missing-person-container textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.report-missing-person-container textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* File Input Styling */
+.report-missing-person-container input[type='file'] {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+/* Label Styling */
+.report-missing-person-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Button Styling */
+.report-missing-person-container button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.report-missing-person-container button:hover {
+  background-color: #0056b3;
+}
+
+.report-missing-person-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .report-missing-person-container {
+    padding: 10px;
+  }
+
+  .report-missing-person-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .report-missing-person-container input,
+  .report-missing-person-container textarea {
+    font-size: 0.9rem;
+  }
+
+  .report-missing-person-container label {
+    font-size: 0.9rem;
+  }
+
+  .report-missing-person-container button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
