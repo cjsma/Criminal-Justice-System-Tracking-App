@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { db } from "../firebase"; // Import your Firebase configuration
 import { collection, addDoc } from "firebase/firestore"; // Firestore functions
 import "./PoliceOfficerDashboard.css"; // Import the CSS file
@@ -124,6 +125,14 @@ const PoliceOfficerDashboard = () => {
           />
         </div>
         <h1>Correctional Service Information</h1>
+        {/* Navigation Links */}
+        <nav>
+          <ul>
+            <li>
+              <Link to="/missingPerson">Missing Persons</Link>
+            </li>
+          </ul>
+        </nav>
         <form id="PoliceOfficerDashboard" onSubmit={handleSubmit}>
           <label htmlFor="province">Province</label>
           <select

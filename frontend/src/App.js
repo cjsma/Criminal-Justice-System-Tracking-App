@@ -16,6 +16,8 @@ import WantedBases from './pages/WantedBases';
 import MissingPerson from './pages/MissingPerson';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
+import ReportMissingPerson from './pages/ReportMissingPerson';
+import ListMissingPerson from './pages/ListMissingPerson';
 
 
 function App() {
@@ -69,7 +71,11 @@ function App() {
               </ProtectedRoute>
             }
           />
-
+          <Route
+            path="/report-missing-person"
+            element={<ReportMissingPerson />}
+          />
+          <Route path="/list-missing-persons" element={<ListMissingPerson />} />
           {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

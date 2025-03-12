@@ -1,45 +1,92 @@
-/* Signup Page Styles */
-.signup-page {
-  background-color: #f9f9f9;
+/* Main container */
+.signup-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
-}
-
-.signup-form-section {
-  background-color: white;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
   padding: 30px;
+  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
+}
+
+/* Title */
+.signup-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.signup-form label {
-  display: block;
-  margin: 10px 0 5px;
-  font-weight: bold;
+/* Error message */
+.error-message {
+  color: #ff4d4f;
+  font-size: 0.875rem;
+  margin-bottom: 10px;
 }
 
-.signup-form input {
+/* Form styling */
+form {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column; /* Stack the input fields from top to bottom */
+  gap: 15px; /* Add space between input fields */
+}
+
+/* Input fields */
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='password'],
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 0;
   border-radius: 5px;
   border: 1px solid #ddd;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
 }
 
-.btn-primary {
-  background-color: #004080;
+/* Input focus effect */
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Password strength bar container */
+.PasswordStrengthBar {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* Submit button */
+button[type='submit'] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
 }
 
-.btn-primary:hover {
-  opacity: 0.8;
+/* Button hover effect */
+button[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+/* Button disabled state */
+button[type='submit']:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
 }
