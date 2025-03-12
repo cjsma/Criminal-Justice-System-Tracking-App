@@ -19,6 +19,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import ReportMissingPerson from './pages/ReportMissingPerson';
 import ListMissingPerson from './pages/ListMissingPerson';
 
+
 function App() {
   return (
     <AuthProvider>
