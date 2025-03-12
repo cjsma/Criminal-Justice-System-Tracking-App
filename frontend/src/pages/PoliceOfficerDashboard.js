@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase"; // Import your Firebase configuration
 import { collection, addDoc } from "firebase/firestore"; // Firestore functions
+import "./PoliceOfficerDashboard.css"; // Import the CSS file
 
 // Data for correctional services by province
 const correctionalServicesByProvince = {
