@@ -1,94 +1,116 @@
-import React from 'react';
-import React, { useEffect, useState, services, setServices } from "react";
+import React, { useEffect, useState } from "react";
+import { db } from "../firebase"; // Import your Firebase configuration
+import { collection, addDoc } from "firebase/firestore"; // Firestore functions
 
-
-// const PoliceOfficerDashboard = () => {
-//   return (
-//     <div>
-//       <h1>Police Officer Dashboard</h1>
-//       {/* Police Officer specific content */}
-//     </div>
-//   );
-// };
-
-// export default PoliceOfficerDashboard;
-
-
+// Data for correctional services by province
+const correctionalServicesByProvince = {
+  Gauteng: [
+    "Leeuhof Prison Hospital",
+    "Johannesburg Correctional Centre",
+    "Boksburg Correctional Centre",
+  ],
+  "KwaZulu-Natal": [
+    "Durban Correctional Centre",
+    "Westville Correctional Centre",
+    "Pietermaritzburg Correctional Centre",
+  ],
+  "Western Cape": [
+    "Pollsmoor Prison",
+    "Goodwood Correctional Centre",
+    "Brandvlei Correctional Centre",
+  ],
+  "Eastern Cape": [
+    "East London Correctional Centre",
+    "St. Albans Correctional Centre",
+    "Mthatha Correctional Centre",
+  ],
+  "Free State": [
+    "Grootvlei Prison",
+    "Bethlehem Correctional Centre",
+    "Kroonstad Correctional Centre",
+  ],
+  Limpopo: [
+    "Polokwane Correctional Centre",
+    "Thohoyandou Correctional Centre",
+    "Modimolle Correctional Centre",
+  ],
+  Mpumalanga: [
+    "Barberton Prison",
+    "Nelspruit Correctional Centre",
+    "Witbank Correctional Centre",
+  ],
+  "Northern Cape": [
+    "Kimberley Correctional Centre",
+    "Upington Correctional Centre",
+    "Kuruman Correctional Centre",
+  ],
+  "North West": [
+    "Rustenburg Correctional Centre",
+    "Mafikeng Correctional Centre",
+    "Potchefstroom Correctional Centre",
+  ],
+};
 
 const PoliceOfficerDashboard = () => {
+  const [selectedProvince, setSelectedProvince] = useState("");
   const [services, setServices] = useState([]);
+  const [formData, setFormData] = useState({
+    province: "",
+    serviceName: "",
+    officerName: "",
+    employeeNumber: "",
+    ranking: "",
+  });
 
-  const PoliceOfficerDashboard = {
-    Gauteng: [
-      "Leeuhof Prison Hospital",
-      "Johannesburg Correctional Centre",
-      "Boksburg Correctional Centre",
-    ],
-    "KwaZulu-Natal": [
-      "Durban Correctional Centre",
-      "Westville Correctional Centre",
-      "Pietermaritzburg Correctional Centre",
-    ],
-    "Western Cape": [
-      "Pollsmoor Prison",
-      "Goodwood Correctional Centre",
-      "Brandvlei Correctional Centre",
-    ],
-    "Eastern Cape": [
-      "East London Correctional Centre",
-      "St. Albans Correctional Centre",
-      "Mthatha Correctional Centre",
-    ],
-    "Free State": [
-      "Grootvlei Prison",
-      "Bethlehem Correctional Centre",
-      "Kroonstad Correctional Centre",
-    ],
-    Limpopo: [
-      "Polokwane Correctional Centre",
-      "Thohoyandou Correctional Centre",
-      "Modimolle Correctional Centre",
-    ],
-    Mpumalanga: [
-      "Barberton Prison",
-      "Nelspruit Correctional Centre",
-      "Witbank Correctional Centre",
-    ],
-    "Northern Cape": [
-      "Kimberley Correctional Centre",
-      "Upington Correctional Centre",
-      "Kuruman Correctional Centre",
-    ],
-    "North West": [
-      "Rustenburg Correctional Centre",
-      "Mafikeng Correctional Centre",
-      "Potchefstroom Correctional Centre",
-    ],
+  // Update services when province changes
+  useEffect(() => {
+    if (selectedProvince) {
+      setServices(correctionalServicesByProvince[selectedProvince] || []);
+    } else {
+      setServices([]);
+    }
+  }, [selectedProvince]);
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+
+    if (name === "province") {
+      setSelectedProvince(value);
+    }
   };
 
-  useEffect(() => {
-    const provinceSelect = document.getElementById("province");
-    provinceSelect.addEventListener("change", function () {
-      const province = this.value;
-      const serviceNameSelect = document.getElementById("serviceName");
-      serviceNameSelect.innerHTML =
-        '<option value="" disabled selected>Select correctional service</option>';
-      if (PoliceOfficerDashboard[province]) {
-        PoliceOfficerDashboard[province].forEach((service) => {
-          const option = document.createElement("option");
-          option.value = service;
-          option.textContent = service;
-          serviceNameSelect.appendChild(option);
-        });
-      }
-    });
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const form = document.getElementById("PoliceOfficerDashboard");
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      alert("Form submitted!");
-    });
-  }, []);
+    try {
+      // Add form data to Firestore
+      const docRef = await addDoc(collection(db, "policeOfficers"), formData);
+      console.log("Document written with ID: ", docRef.id);
+
+      // Show success message
+      alert("Form submitted successfully!");
+
+      // Reset form
+      setFormData({
+        province: "",
+        serviceName: "",
+        officerName: "",
+        employeeNumber: "",
+        ranking: "",
+      });
+      setSelectedProvince("");
+      setServices([]);
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("An error occurred while submitting the form.");
+    }
+  };
 
   return (
     <div className="correctional-service-page">
@@ -101,28 +123,41 @@ const PoliceOfficerDashboard = () => {
           />
         </div>
         <h1>Correctional Service Information</h1>
-        <form id="PoliceOfficerDashboard">
+        <form id="PoliceOfficerDashboard" onSubmit={handleSubmit}>
           <label htmlFor="province">Province</label>
-          <select id="province" name="province" required>
-            <option value="" disabled selected>
+          <select
+            id="province"
+            name="province"
+            value={formData.province}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="" disabled>
               Select province
             </option>
-            <option value="Gauteng">Gauteng</option>
-            <option value="KwaZulu-Natal">KwaZulu-Natal</option>
-            <option value="Western Cape">Western Cape</option>
-            <option value="Eastern Cape">Eastern Cape</option>
-            <option value="Free State">Free State</option>
-            <option value="Limpopo">Limpopo</option>
-            <option value="Mpumalanga">Mpumalanga</option>
-            <option value="Northern Cape">Northern Cape</option>
-            <option value="North West">North West</option>
+            {Object.keys(correctionalServicesByProvince).map((province) => (
+              <option key={province} value={province}>
+                {province}
+              </option>
+            ))}
           </select>
 
           <label htmlFor="serviceName">Correctional Service Name</label>
-          <select id="serviceName" name="serviceName" required>
-            <option value="" disabled selected>
+          <select
+            id="serviceName"
+            name="serviceName"
+            value={formData.serviceName}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="" disabled>
               Select correctional service
             </option>
+            {services.map((service) => (
+              <option key={service} value={service}>
+                {service}
+              </option>
+            ))}
           </select>
 
           <label htmlFor="officerName">Officer's Full Name</label>
@@ -130,6 +165,8 @@ const PoliceOfficerDashboard = () => {
             type="text"
             id="officerName"
             name="officerName"
+            value={formData.officerName}
+            onChange={handleInputChange}
             placeholder="Enter officer's full name"
             required
           />
@@ -139,6 +176,8 @@ const PoliceOfficerDashboard = () => {
             type="text"
             id="employeeNumber"
             name="employeeNumber"
+            value={formData.employeeNumber}
+            onChange={handleInputChange}
             placeholder="Enter employee number"
             required
             minLength="6"
@@ -146,17 +185,21 @@ const PoliceOfficerDashboard = () => {
           />
 
           <label htmlFor="ranking">Ranking</label>
-          <select id="ranking" name="ranking" required>
-            <option value="" disabled selected>
+          <select
+            id="ranking"
+            name="ranking"
+            value={formData.ranking}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="" disabled>
               Select rank
             </option>
-            {/* Management and Risk */}
             <option value="National Commissioner">National Commissioner</option>
             <option value="Regional Commissioner">Regional Commissioner</option>
             <option value="Director">Director</option>
             <option value="Deputy Director">Deputy Director</option>
             <option value="Assistant Director">Assistant Director</option>
-            {/* Operational */}
             <option value="Principal Correctional Officer">
               Principal Correctional Officer
             </option>
@@ -165,10 +208,7 @@ const PoliceOfficerDashboard = () => {
               Senior Correctional Officer
             </option>
             <option value="Correctional Officer">Correctional Officer</option>
-            {/* Support */}
-            <option value="Administrative Support">
-              Administrative Support
-            </option>
+            <option value="Administrative Support">Administrative Support</option>
             <option value="Technical Support">Technical Support</option>
             <option value="Psychological Support">Psychological Support</option>
             <option value="Health and Medical Support">
