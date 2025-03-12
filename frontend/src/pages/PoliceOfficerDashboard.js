@@ -18,7 +18,7 @@ import React, { useEffect, useState, services, setServices } from "react";
 const PoliceOfficerDashboard = () => {
   const [services, setServices] = useState([]);
 
-  const correctionalServices = {
+  const PoliceOfficerDashboard = {
     Gauteng: [
       "Leeuhof Prison Hospital",
       "Johannesburg Correctional Centre",
@@ -73,8 +73,8 @@ const PoliceOfficerDashboard = () => {
       const serviceNameSelect = document.getElementById("serviceName");
       serviceNameSelect.innerHTML =
         '<option value="" disabled selected>Select correctional service</option>';
-      if (correctionalServices[province]) {
-        correctionalServices[province].forEach((service) => {
+      if (PoliceOfficerDashboard[province]) {
+        PoliceOfficerDashboard[province].forEach((service) => {
           const option = document.createElement("option");
           option.value = service;
           option.textContent = service;
@@ -83,7 +83,7 @@ const PoliceOfficerDashboard = () => {
       }
     });
 
-    const form = document.getElementById("correctionalServiceForm");
+    const form = document.getElementById("PoliceOfficerDashboard");
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       alert("Form submitted!");
@@ -101,7 +101,7 @@ const PoliceOfficerDashboard = () => {
           />
         </div>
         <h1>Correctional Service Information</h1>
-        <form id="correctionalServiceForm">
+        <form id="PoliceOfficerDashboard">
           <label htmlFor="province">Province</label>
           <select id="province" name="province" required>
             <option value="" disabled selected>
