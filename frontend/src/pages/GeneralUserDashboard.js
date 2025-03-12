@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { auth, db } from '../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import AddCaseForm from '../components/AddCaseForm'; // Import the AddCaseForm component
+import "./PoliceOfficerDashboard.css"; // Import the CSS file
 
 function GeneralUserDashboard() {
   const [cases, setCases] = useState([]);
