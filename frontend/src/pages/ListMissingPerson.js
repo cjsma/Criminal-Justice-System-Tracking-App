@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
-import './ListMissingPersons.css'; // Import the CSS file
+import '../styles/ListMissingPersons.css'; // Import the CSS file
 
 const ListMissingPersons = () => {
   const [missingPersons, setMissingPersons] = useState([]);

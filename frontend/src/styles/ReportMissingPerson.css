@@ -6,7 +6,7 @@
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #f9f7f713;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -14,9 +14,9 @@
 /* Heading */
 .report-missing-person-container h1 {
   text-align: center;
-  color: #333;
+  color: #fdfbfb;
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 /* Error Message */

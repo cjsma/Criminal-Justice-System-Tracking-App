@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import PasswordStrengthBar from 'react-password-strength-bar';
-import './SignupPage.css';
+import '../styles/SignupPage.css';
 
 function SignupPage() {
   const [firstName, setFirstName] = useState('');

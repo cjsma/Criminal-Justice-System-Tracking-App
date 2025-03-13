@@ -3,11 +3,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background: url('https://i.imgur.com/dQFt6o8.jpeg');
 }
 
 .missing-persons-box {
-  background: #fff;
+  background: #ffffffbd;
   padding: 2rem;
   border-radius: 12px;
   text-align: center;

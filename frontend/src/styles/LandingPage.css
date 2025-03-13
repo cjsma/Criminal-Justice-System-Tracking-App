@@ -1,0 +1,74 @@
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://i.imgur.com/dQFt6o8.jpeg');
+}
+
+.hero-section {
+  text-align: center;
+  max-height: 600px;
+  max-width: 600px;
+  padding: 10px;
+  background-color: #02b7ffd2;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
+  margin-bottom: 50px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.hero-content .logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: #f4f2f2;
+  margin-bottom: 10px;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #020d45;
+  margin-bottom: 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgb(45, 188, 244);
+}
+
+.btn-primary {
+  background-color: #6c757d;
+  color: #fff;
+  box-shadow: 0 4px 8px rgb(51, 95, 239);
+}
+
+.btn-primary:hover {
+  background-color: #5a6268;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  box-shadow: 0 4px 8px rgb(51, 95, 239);
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}

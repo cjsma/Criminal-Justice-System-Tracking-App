@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { db, storage } from '../firebase'; // Import Firestore and Storage
 import { collection, addDoc } from 'firebase/firestore'; // Import Firestore functions
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Import Storage functions
-import './ReportMissingPerson.css'; // Import the new CSS file
+import '../styles/ReportMissingPerson.css'; // Import the new CSS file
 
 const ReportMissingPerson = () => {
   const [formData, setFormData] = useState({

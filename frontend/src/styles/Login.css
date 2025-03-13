@@ -1,0 +1,88 @@
+/* General styles for the login container */
+body {
+  background: url('https://i.imgur.com/dQFt6o8.jpeg');
+}
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff9c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-items: center;
+  margin-bottom: 100px;
+  justify-items: center;
+}
+
+/* Heading style */
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+/* Error message style */
+.error-message {
+  color: #ff0000;
+  background-color: #ffe6e6;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Form styles */
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-items: center;
+}
+
+/* Input styles */
+.login-container input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: #02b7ff;
+}
+
+/* Button styles */
+.login-container .btn-primary {
+  padding: 10px;
+  background-color: #02b7ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container .btn-primary:hover {
+  background-color: #0199cc;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .login-container h2 {
+    font-size: 20px;
+  }
+
+  .login-container input,
+  .login-container .btn-primary {
+    font-size: 14px;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'; // Import the logo from local assets
-import './MissingPerson.css'; // Import CSS for styling
+import '../styles/MissingPerson.css'; // Import CSS for styling
 
 const MissingPersons = () => {
   const navigate = useNavigate();
