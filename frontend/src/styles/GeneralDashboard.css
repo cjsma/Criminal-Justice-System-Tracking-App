@@ -1,0 +1,88 @@
+/* General styles for the dashboard */
+.general-user-dashboard {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9a1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 200px;
+}
+
+/* Heading styles */
+.general-user-dashboard h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.general-user-dashboard h2 {
+  color: #444;
+  margin-bottom: 15px;
+}
+
+/* Button styles */
+.general-user-dashboard button {
+  padding: 10px 20px;
+  background-color: #02b7ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.general-user-dashboard button:hover {
+  background-color: #0199cc;
+}
+
+/* Case list styles */
+.cases-list {
+  margin-top: 20px;
+}
+
+.case-item {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.case-item h3 {
+  color: #02b7ff;
+  margin-bottom: 10px;
+}
+
+.case-item p {
+  color: #555;
+  margin: 5px 0;
+}
+
+/* No cases message */
+.cases-list p {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .general-user-dashboard {
+    padding: 15px;
+  }
+
+  .general-user-dashboard h1 {
+    font-size: 24px;
+  }
+
+  .general-user-dashboard button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .case-item {
+    padding: 10px;
+  }
+}

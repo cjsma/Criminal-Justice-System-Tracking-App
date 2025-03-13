@@ -3,7 +3,7 @@ import { auth, db } from '../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import AddCaseForm from '../components/AddCaseForm'; // Import the AddCaseForm component
-import "./PoliceOfficerDashboard.css"; // Import the CSS file
+import '../styles/GeneralDashboard.css';
 
 function GeneralUserDashboard() {
   const navigate = useNavigate();

@@ -1,67 +1,67 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { db } from "../firebase"; // Import your Firebase configuration
-import { collection, addDoc } from "firebase/firestore"; // Firestore functions
-import "./PoliceOfficerDashboard.css"; // Import the CSS file
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { db } from '../firebase'; // Import your Firebase configuration
+import { collection, addDoc } from 'firebase/firestore'; // Firestore functions
+import '../styles/PoliceOfficerDashboard.css'; // Import the CSS file
 
 // Data for correctional services by province
 const correctionalServicesByProvince = {
   Gauteng: [
-    "Leeuhof Prison Hospital",
-    "Johannesburg Correctional Centre",
-    "Boksburg Correctional Centre",
+    'Leeuhof Prison Hospital',
+    'Johannesburg Correctional Centre',
+    'Boksburg Correctional Centre',
   ],
-  "KwaZulu-Natal": [
-    "Durban Correctional Centre",
-    "Westville Correctional Centre",
-    "Pietermaritzburg Correctional Centre",
+  'KwaZulu-Natal': [
+    'Durban Correctional Centre',
+    'Westville Correctional Centre',
+    'Pietermaritzburg Correctional Centre',
   ],
-  "Western Cape": [
-    "Pollsmoor Prison",
-    "Goodwood Correctional Centre",
-    "Brandvlei Correctional Centre",
+  'Western Cape': [
+    'Pollsmoor Prison',
+    'Goodwood Correctional Centre',
+    'Brandvlei Correctional Centre',
   ],
-  "Eastern Cape": [
-    "East London Correctional Centre",
-    "St. Albans Correctional Centre",
-    "Mthatha Correctional Centre",
+  'Eastern Cape': [
+    'East London Correctional Centre',
+    'St. Albans Correctional Centre',
+    'Mthatha Correctional Centre',
   ],
-  "Free State": [
-    "Grootvlei Prison",
-    "Bethlehem Correctional Centre",
-    "Kroonstad Correctional Centre",
+  'Free State': [
+    'Grootvlei Prison',
+    'Bethlehem Correctional Centre',
+    'Kroonstad Correctional Centre',
   ],
   Limpopo: [
-    "Polokwane Correctional Centre",
-    "Thohoyandou Correctional Centre",
-    "Modimolle Correctional Centre",
+    'Polokwane Correctional Centre',
+    'Thohoyandou Correctional Centre',
+    'Modimolle Correctional Centre',
   ],
   Mpumalanga: [
-    "Barberton Prison",
-    "Nelspruit Correctional Centre",
-    "Witbank Correctional Centre",
+    'Barberton Prison',
+    'Nelspruit Correctional Centre',
+    'Witbank Correctional Centre',
   ],
-  "Northern Cape": [
-    "Kimberley Correctional Centre",
-    "Upington Correctional Centre",
-    "Kuruman Correctional Centre",
+  'Northern Cape': [
+    'Kimberley Correctional Centre',
+    'Upington Correctional Centre',
+    'Kuruman Correctional Centre',
   ],
-  "North West": [
-    "Rustenburg Correctional Centre",
-    "Mafikeng Correctional Centre",
-    "Potchefstroom Correctional Centre",
+  'North West': [
+    'Rustenburg Correctional Centre',
+    'Mafikeng Correctional Centre',
+    'Potchefstroom Correctional Centre',
   ],
 };
 
 const PoliceOfficerDashboard = () => {
-  const [selectedProvince, setSelectedProvince] = useState("");
+  const [selectedProvince, setSelectedProvince] = useState('');
   const [services, setServices] = useState([]);
   const [formData, setFormData] = useState({
-    province: "",
-    serviceName: "",
-    officerName: "",
-    employeeNumber: "",
-    ranking: "",
+    province: '',
+    serviceName: '',
+    officerName: '',
+    employeeNumber: '',
+    ranking: '',
   });
 
   // Update services when province changes
@@ -81,7 +81,7 @@ const PoliceOfficerDashboard = () => {
       [name]: value,
     });
 
-    if (name === "province") {
+    if (name === 'province') {
       setSelectedProvince(value);
     }
   };
@@ -92,25 +92,25 @@ const PoliceOfficerDashboard = () => {
 
     try {
       // Add form data to Firestore
-      const docRef = await addDoc(collection(db, "policeOfficers"), formData);
-      console.log("Document written with ID: ", docRef.id);
+      const docRef = await addDoc(collection(db, 'policeOfficers'), formData);
+      console.log('Document written with ID: ', docRef.id);
 
       // Show success message
-      alert("Form submitted successfully!");
+      alert('Form submitted successfully!');
 
       // Reset form
       setFormData({
-        province: "",
-        serviceName: "",
-        officerName: "",
-        employeeNumber: "",
-        ranking: "",
+        province: '',
+        serviceName: '',
+        officerName: '',
+        employeeNumber: '',
+        ranking: '',
       });
-      setSelectedProvince("");
+      setSelectedProvince('');
       setServices([]);
     } catch (error) {
-      console.error("Error adding document: ", error);
-      alert("An error occurred while submitting the form.");
+      console.error('Error adding document: ', error);
+      alert('An error occurred while submitting the form.');
     }
   };
 
@@ -218,7 +218,9 @@ const PoliceOfficerDashboard = () => {
               Senior Correctional Officer
             </option>
             <option value="Correctional Officer">Correctional Officer</option>
-            <option value="Administrative Support">Administrative Support</option>
+            <option value="Administrative Support">
+              Administrative Support
+            </option>
             <option value="Technical Support">Technical Support</option>
             <option value="Psychological Support">Psychological Support</option>
             <option value="Health and Medical Support">
