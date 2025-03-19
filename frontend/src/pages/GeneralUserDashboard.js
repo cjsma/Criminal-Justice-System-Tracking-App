@@ -58,7 +58,7 @@ function GeneralUserDashboard() {
   return (
     <div className="general-user-dashboard">
       <h1>General User Dashboard</h1>
-      <button onClick={handleLogout} style={{ marginBottom: '20px' }}>
+      <button onClick={() => navigate('/')} style={{ marginBottom: '20px' }}>
         Logout
       </button>
 
