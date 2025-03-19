@@ -58,10 +58,10 @@ function GeneralUserDashboard() {
   return (
     <div className="general-user-dashboard">
       <h1>General User Dashboard</h1>
-      <button onClick={handleLogout} style={{ marginBottom: '20px' }}>
-        Logout
-      </button>
 
+        <button onClick={handleLogoutAndNavigate} style={{ marginBottom: '20px' }}>
+      Logout
+    </button>
       {/* Buttons for Adding a Case and Reporting a Missing Person */}
       <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
         <button onClick={() => setShowAddCaseForm(!showAddCaseForm)}>
