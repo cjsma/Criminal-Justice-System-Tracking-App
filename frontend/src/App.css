@@ -1,32 +1,30 @@
 .App {
   text-align: center;
-  background: url('https://i.imgur.com/dQFt6o8.jpeg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://i.imgur.com/dQFt6o8.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: white;
+  padding: 1rem;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: clamp(100px, 40vmin, 300px);
   pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.App-logo:hover {
+  transform: scale(1.1);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -36,4 +34,93 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App-header {
+  background-color: rgba(40, 44, 52, 0.8);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(16px, calc(10px + 2vmin), 24px);
+  color: white;
+  padding: 1rem;
+}
+
+.App-link {
+  color: #61dafb;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+  font-size: clamp(14px, 2vmin, 18px);
+}
+
+.App-link:hover {
+  color: #21a1f1;
+}
+
+.App-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #61dafb;
+  bottom: -2px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.App-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.App-footer {
+  background-color: rgba(40, 44, 52, 0.8);
+  padding: 0.5rem;
+  font-size: clamp(12px, 1.5vmin, 16px);
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* Mobile devices (up to 767px) */
+@media (max-width: 767px) {
+  .App {
+    padding: 0.5rem;
+  }
+
+  .App-header {
+    padding: 0.5rem;
+    font-size: calc(12px + 2vmin);
+  }
+
+  .App-logo {
+    height: clamp(80px, 30vmin, 200px);
+  }
+}
+
+/* Tablet devices (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .App {
+    padding: 1rem;
+  }
+
+  .App-header {
+    padding: 1rem;
+    font-size: calc(14px + 2vmin);
+  }
+
+  .App-logo {
+    height: clamp(120px, 35vmin, 250px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
