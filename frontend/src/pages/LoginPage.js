@@ -1,20 +1,24 @@
-// src/pages/LoginPage.js
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { ClipLoader } from 'react-spinners'; // For the loading spinner
 import '../styles/Login.css';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError('');
+    setLoading(true);
 
     try {
       // Sign in the user
@@ -45,12 +49,33 @@ function LoginPage() {
         setError('User data not found.');
       }
     } catch (error) {
-      setError('Invalid email or password.');
+      // Handle specific errors
+      switch (error.code) {
+        case 'auth/invalid-email':
+          setError('Invalid email address.');
+          break;
+        case 'auth/user-disabled':
+          setError('This account has been disabled.');
+          break;
+        case 'auth/user-not-found':
+        case 'auth/wrong-password':
+          setError('Invalid email or password.');
+          break;
+        default:
+          setError('An error occurred. Please try again.');
+          break;
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <div className="login-container">
+    <div className="login-container pt-20">
       <h2>Login</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
@@ -60,16 +85,27 @@ function LoginPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          disabled={loading}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="btn-primary">
-          Login
+        <div className="password-input-container">
+          <input
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            disabled={loading}
+          />
+          <button
+            type="button"
+            className="toggle-password"
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? '🙈' : '👁️'}
+          </button>
+        </div>
+        <button type="submit" className="btn-primary" disabled={loading}>
+          {loading ? <ClipLoader size={20} color="#ffffff" /> : 'Login'}
         </button>
       </form>
     </div>

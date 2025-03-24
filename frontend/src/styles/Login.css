@@ -1,28 +1,46 @@
 /* General styles for the login container */
 body {
-  background: url('https://i.imgur.com/dQFt6o8.jpeg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://i.imgur.com/dQFt6o8.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
+
 .login-container {
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #ffffff9c;
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  justify-items: center;
-  margin-bottom: 100px;
-  justify-items: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Heading style */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .login-container h2 {
   margin-bottom: 20px;
   color: #333;
   font-size: 24px;
+  font-weight: bold;
 }
 
-/* Error message style */
 .error-message {
   color: #ff0000;
   background-color: #ffe6e6;
@@ -30,31 +48,66 @@ body {
   border-radius: 5px;
   margin-bottom: 15px;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-/* Form styles */
+.error-message::before {
+  content: '⚠️';
+}
+
 .login-container form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  justify-items: center;
 }
 
-/* Input styles */
 .login-container input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container input::placeholder {
+  color: #999;
 }
 
 .login-container input:focus {
   border-color: #02b7ff;
+  box-shadow: 0 0 5px rgba(2, 183, 255, 0.5);
 }
 
-/* Button styles */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  width: 100%;
+  padding-right: 40px; /* Space for the toggle button */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  color: #666;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+
 .login-container .btn-primary {
   padding: 10px;
   background-color: #02b7ff;
@@ -63,11 +116,21 @@ body {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .login-container .btn-primary:hover {
   background-color: #0199cc;
+  transform: scale(1.05);
+}
+
+.login-container .btn-primary:active {
+  transform: scale(0.95);
+}
+
+.login-container .btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 /* Responsive design for smaller screens */
