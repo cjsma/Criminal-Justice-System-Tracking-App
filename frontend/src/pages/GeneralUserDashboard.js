@@ -40,65 +40,110 @@ function GeneralUserDashboard() {
     fetchCases();
   }, []);
 
-  const handleLogout = async () => {
+  const handleLogoutAndNavigate = async () => {
     try {
       await auth.signOut();
       navigate('/login');
     } catch (err) {
       console.error('Error logging out:', err);
+      setError('Failed to logout. Please try again.');
     }
   };
 
-  const handleAddCaseSuccess = () => {
+  const handleAddCaseSuccess = async () => {
     setShowAddCaseForm(false);
     // Refetch cases after adding a new case
-    setCases();
+    setLoading(true);
+    try {
+      const user = auth.currentUser;
+      if (user) {
+        const casesQuery = query(
+          collection(db, 'cases'),
+          where('userId', '==', user.uid)
+        );
+        const querySnapshot = await getDocs(casesQuery);
+        const casesData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setCases(casesData);
+      }
+    } catch (err) {
+      setError('Failed to refresh cases. Please try again later.');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="general-user-dashboard">
-      <h1>General User Dashboard</h1>
+      <header className="dashboard-header">
+        <h1>General User Dashboard</h1>
+        <button onClick={handleLogoutAndNavigate} className="logout-button">
+          Logout
+        </button>
+      </header>
 
-        <button onClick={handleLogoutAndNavigate} style={{ marginBottom: '20px' }}>
-      Logout
-    </button>
-      {/* Buttons for Adding a Case and Reporting a Missing Person */}
-      <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-        <button onClick={() => setShowAddCaseForm(!showAddCaseForm)}>
+      <div className="action-buttons">
+        <button
+          onClick={() => setShowAddCaseForm(!showAddCaseForm)}
+          className="action-button"
+        >
           {showAddCaseForm ? 'Cancel' : 'Add New Case'}
         </button>
-        <button onClick={() => navigate('/missingPerson')}>
-          Missing Person
+        <button
+          onClick={() => navigate('/missingPerson')}
+          className="action-button"
+        >
+          Report Missing Person
         </button>
       </div>
 
       {/* Render the AddCaseForm if showAddCaseForm is true */}
-      {showAddCaseForm && <AddCaseForm onSuccess={handleAddCaseSuccess} />}
+      {showAddCaseForm && (
+        <div className="add-case-form-container">
+          <AddCaseForm onSuccess={handleAddCaseSuccess} />
+        </div>
+      )}
 
       {/* List of Cases */}
       <div className="cases-list">
         <h2>Your Cases</h2>
         {loading ? (
-          <p>Loading cases...</p>
+          <p className="loading-message">Loading cases...</p>
         ) : error ? (
-          <p style={{ color: 'red' }}>{error}</p>
+          <p className="error-message">{error}</p>
         ) : cases.length === 0 ? (
-          <p>No cases found.</p>
+          <p className="no-cases-message">No cases found.</p>
         ) : (
-          cases.map((caseItem) => (
-            <div
-              key={caseItem.id}
-              className="case-item"
-              onClick={() => navigate(`/case/${caseItem.id}`)}
-              style={{ cursor: 'pointer' }}
-            >
-              <h3>Case Number: {caseItem.caseNumber}</h3>
-              <p>Assigned Officer: {caseItem.assignedOfficer}</p>
-              <p>Police Station: {caseItem.policeStation}</p>
-              <p>Status: {caseItem.status}</p>
-              <p>Incident Description: {caseItem.description}</p>
-            </div>
-          ))
+          <div className="cases-grid">
+            {cases.map((caseItem) => (
+              <div
+                key={caseItem.id}
+                className="case-card"
+                onClick={() => navigate(`/case/${caseItem.id}`)}
+              >
+                <h3>Case Number: {caseItem.caseNumber}</h3>
+                <p>
+                  <strong>Assigned Officer:</strong>{' '}
+                  {caseItem.assignedOfficer || 'Not assigned'}
+                </p>
+                <p>
+                  <strong>Police Station:</strong> {caseItem.policeStation}
+                </p>
+                <p>
+                  <strong>Status:</strong>{' '}
+                  <span className={`status-${caseItem.status.toLowerCase()}`}>
+                    {caseItem.status}
+                  </span>
+                </p>
+                <p>
+                  <strong>Incident Description:</strong> {caseItem.description}
+                </p>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </div>
