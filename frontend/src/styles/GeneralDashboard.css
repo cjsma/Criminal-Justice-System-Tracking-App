@@ -2,62 +2,86 @@
 .general-user-dashboard {
   max-width: 1200px;
   margin: 20px auto;
-  padding: 20px;
-  background-color: #f9f9f9a1;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 200px;
+  padding: 40px 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.general-user-dashboard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Heading styles */
 .general-user-dashboard h1 {
   text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .general-user-dashboard h2 {
   color: #444;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 
 /* Button styles */
 .general-user-dashboard button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: #02b7ff;
   color: #ffffff;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .general-user-dashboard button:hover {
   background-color: #0199cc;
+  transform: scale(1.05);
 }
 
 /* Case list styles */
 .cases-list {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .case-item {
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
+  background-color: #f40e0e; /* White background for the case box */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow to create depth */
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #02b7ff; /* Added left border for a more distinct box look */
+}
+
+.case-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .case-item h3 {
   color: #02b7ff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .case-item p {
   color: #555;
-  margin: 5px 0;
+  font-size: 1.1rem;
+  margin: 8px 0;
 }
 
 /* No cases message */
@@ -65,24 +89,39 @@
   text-align: center;
   color: #777;
   font-style: italic;
+  font-size: 1.2rem;
 }
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .general-user-dashboard {
-    padding: 15px;
+    padding: 20px;
+    max-width: 95%;
   }
 
   .general-user-dashboard h1 {
-    font-size: 24px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .general-user-dashboard h2 {
+    font-size: 1.4rem;
   }
 
   .general-user-dashboard button {
-    font-size: 14px;
-    padding: 8px 16px;
+    font-size: 16px;
+    padding: 10px 20px;
   }
 
   .case-item {
-    padding: 10px;
+    padding: 15px;
+  }
+
+  .case-item h3 {
+    font-size: 1.6rem;
+  }
+
+  .case-item p {
+    font-size: 1rem;
   }
 }

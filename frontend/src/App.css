@@ -1,16 +1,63 @@
+/* Base App Styles */
 .App {
   text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('https://i.imgur.com/dQFt6o8.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 100vh;
   color: white;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
+/* Layout Variations */
+.landing-layout {
+  padding: 0;
+}
+
+.default-layout {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+
+/* Content Area */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+  margin: 0;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+footer p:hover {
+  opacity: 1;
+}
+
+/* Logo Animation */
 .App-logo {
   height: clamp(100px, 40vmin, 300px);
   pointer-events: none;
@@ -18,109 +65,68 @@
 }
 
 .App-logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(10deg);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.App-header {
-  background-color: rgba(40, 44, 52, 0.8);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(16px, calc(10px + 2vmin), 24px);
+/* Button Styling */
+.button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6f61;
   color: white;
-  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
-  font-size: clamp(14px, 2vmin, 18px);
+.button:hover {
+  background-color: #ff4b47;
 }
 
-.App-link:hover {
-  color: #21a1f1;
-}
-
-.App-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #61dafb;
-  bottom: -2px;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease;
-}
-
-.App-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.App-footer {
-  background-color: rgba(40, 44, 52, 0.8);
-  padding: 0.5rem;
-  font-size: clamp(12px, 1.5vmin, 16px);
-  color: white;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-
-/* Mobile devices (up to 767px) */
+/* Responsive Adjustments */
 @media (max-width: 767px) {
-  .App {
-    padding: 0.5rem;
+  .default-layout {
+    padding: 0;
   }
 
-  .App-header {
-    padding: 0.5rem;
-    font-size: calc(12px + 2vmin);
-  }
-
-  .App-logo {
-    height: clamp(80px, 30vmin, 200px);
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
-/* Tablet devices (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .App {
-    padding: 1rem;
-  }
-
-  .App-header {
-    padding: 1rem;
-    font-size: calc(14px + 2vmin);
-  }
-
-  .App-logo {
-    height: clamp(120px, 35vmin, 250px);
+  .default-layout {
+    padding: 0;
   }
 }
 
+/* Accessibility Improvements */
+*:focus {
+  outline: 2px dashed #ff6f61;
+  outline-offset: 4px;
+}
+
+/* Smooth Scroll */
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0404b2;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0404b2;
 }
