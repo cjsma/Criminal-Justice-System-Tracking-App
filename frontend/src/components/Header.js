@@ -5,6 +5,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
+import logo from '../assets/logo.png';
 
 function Header() {
   const [user, setUser] = useState(null);
@@ -48,44 +49,50 @@ function Header() {
   };
 
   return (
-    <header className="header">
-      <div className="logo">
-        <Link to="/">CJS</Link>
-      </div>
-      <nav className="nav">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-      </nav>
-      {user ? (
-        <div className="profile-section">
-          <div className="profile" onClick={toggleDropdown}>
-            <img
-              src={profile?.photoURL || 'https://via.placeholder.com/40'}
-              alt="Profile"
-              className="profile-pic"
-            />
-            <span>{profile?.name || user.email}</span>
-          </div>
-          {isDropdownOpen && (
-            <div className="dropdown">
-              <Link to="/profile">View Profile</Link>
-              <Link to="/edit-profile">Edit Profile</Link>
-              <button onClick={handleLogout}>Logout</button>
-            </div>
-          )}
+    <>
+      {/* Header Navigation */}
+      <header className="header">
+        <div className="logo">
+          <Link to="/">
+            <img src={logo} alt="Organization Logo" className="logo" />
+          </Link>
         </div>
-      ) : (
-        <Link to="/login" className="login-button">
-          Login
-        </Link>
-      )}
-    </header>
+        <nav className="nav">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {user ? (
+          <div className="profile-section">
+            <div className="profile" onClick={toggleDropdown}>
+              <img
+                src={profile?.photoURL || 'https://via.placeholder.com/40'}
+                alt="Profile"
+                className="profile-pic"
+              />
+              <span>{profile?.name || user.email}</span>
+            </div>
+            {isDropdownOpen && (
+              <div className="dropdown">
+                <Link to="/profile">View Profile</Link>
+                <Link to="/edit-profile">Edit Profile</Link>
+                <button onClick={handleLogout}>Logout</button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <Link to="/login" className="login-button">
+            Login
+          </Link>
+        )}
+      </header>
+    </>
   );
 }
 

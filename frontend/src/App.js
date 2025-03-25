@@ -21,74 +21,82 @@ import ListMissingPerson from './pages/ListMissingPerson';
 import Header from './components/Header';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
+import './App.css';
 
 function AppContent() {
   const location = useLocation();
-  const hideHeaderRoutes = ['/profile', '/edit-profile']; // Hide header on these routes
+  const hideHeaderRoutes = ['/'];
+  const isLandingPage = location.pathname === '/';
 
   return (
-    <>
+    <div
+      className={`App ${isLandingPage ? 'landing-layout' : 'default-layout'}`}
+    >
       {!hideHeaderRoutes.includes(location.pathname) && <Header />}
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/edit-profile" element={<EditProfile />} />
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage />} />
 
-        {/* Protected Routes */}
-        <Route
-          path="/police-officer-dashboard"
-          element={
-            <ProtectedRoute allowedRoles={['police_officer']}>
-              <PoliceOfficerDashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/general-user-dashboard"
-          element={
-            <ProtectedRoute allowedRoles={['general_user']}>
-              <GeneralUserDashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cases"
-          element={
-            <ProtectedRoute allowedRoles={['police_officer']}>
-              <Cases />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/wanted"
-          element={
-            <ProtectedRoute allowedRoles={['police_officer']}>
-              <WantedBases />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/missingPerson"
-          element={
-            <ProtectedRoute allowedRoles={['general_user', 'police_officer']}>
-              <MissingPerson />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/report-missing-person"
-          element={<ReportMissingPerson />}
-        />
-        <Route path="/list-missing-persons" element={<ListMissingPerson />} />
+      <main className="content-wrapper">
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
 
-        {/* Fallback Route */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+          {/* Protected Routes */}
+          <Route
+            path="/police-officer-dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['police_officer']}>
+                <PoliceOfficerDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/general-user-dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['general_user']}>
+                <GeneralUserDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cases"
+            element={
+              <ProtectedRoute allowedRoles={['police_officer']}>
+                <Cases />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/wanted"
+            element={
+              <ProtectedRoute allowedRoles={['police_officer']}>
+                <WantedBases />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/missingPerson"
+            element={
+              <ProtectedRoute allowedRoles={['general_user', 'police_officer']}>
+                <MissingPerson />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/report-missing-person"
+            element={<ReportMissingPerson />}
+          />
+          <Route path="/list-missing-persons" element={<ListMissingPerson />} />
+
+          {/* Fallback Route */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </main>
+
       <Footer />
-    </>
+    </div>
   );
 }
 

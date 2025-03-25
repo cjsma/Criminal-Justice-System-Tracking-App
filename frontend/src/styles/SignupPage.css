@@ -5,36 +5,80 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 40px;
-  background-color: #f9f9f9af;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 700px; /* Increased max width for a more spacious form */
+  margin: 60px auto;
+  padding: 60px;
+  background: linear-gradient(
+    135deg,
+    #aec6cf,
+    #f3f3f3
+  ); /* Soft blue gradient */
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Title */
 .signup-container h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #676565;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 35px;
   text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* Error message */
 .error-message {
   color: #ff4d4f;
-  font-size: 0.875rem;
-  margin-bottom: 10px;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-align: center;
+  background: #ffe6e6;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-left: 5px solid #ff4d4f;
+  animation: shake 0.5s ease-in-out;
+}
+
+.error-message::before {
+  content: '⚠️';
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* Form styling */
 form {
   width: 100%;
   display: flex;
-  flex-direction: column; /* Stack the input fields from top to bottom */
-  gap: 15px; /* Add space between input fields */
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Input fields */
@@ -44,49 +88,82 @@ input[type='tel'],
 input[type='password'],
 select {
   width: 100%;
-  padding: 12px;
-  margin: 0;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  background-color: #fff;
-  transition: border-color 0.3s ease;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  background-color: #ffffff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Input focus effect */
 input:focus,
 select:focus {
   border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
   outline: none;
 }
 
 /* Password strength bar container */
 .PasswordStrengthBar {
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-top: 12px;
+  margin-bottom: 20px;
 }
 
 /* Submit button */
 button[type='submit'] {
   width: 100%;
-  padding: 12px;
-  background-color: #007bff;
+  padding: 16px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
+  border-radius: 12px;
+  font-size: 1.3rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 15px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 25px;
+  text-transform: uppercase;
 }
 
 /* Button hover effect */
 button[type='submit']:hover {
-  background-color: #0056b3;
+  background: linear-gradient(90deg, #0056b3, #004099);
+  transform: scale(1.05);
 }
 
 /* Button disabled state */
 button[type='submit']:disabled {
-  background-color: #bbb;
+  background: #bbb;
   cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signup-container {
+    padding: 40px;
+    max-width: 90%;
+  }
+
+  .signup-container h2 {
+    font-size: 2.5rem; /* Slightly reduced title size */
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  select {
+    font-size: 1rem;
+  }
+
+  button[type='submit'] {
+    font-size: 1.1rem;
+  }
+}
+
+/* Accessibility enhancements */
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
 }
