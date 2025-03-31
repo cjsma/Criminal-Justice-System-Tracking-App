@@ -22,6 +22,7 @@ import Header from './components/Header';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 import './App.css';
+import AddCase from './pages/AddCase';
 
 function AppContent() {
   const location = useLocation();
@@ -89,7 +90,14 @@ function AppContent() {
             element={<ReportMissingPerson />}
           />
           <Route path="/list-missing-persons" element={<ListMissingPerson />} />
-
+          <Route
+            path="/AddCase"
+            element={
+              <ProtectedRoute allowedRoles={['general_user', 'police_officer']}>
+                <AddCase />
+              </ProtectedRoute>
+            }
+          />
           {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

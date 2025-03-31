@@ -1,10 +1,17 @@
 // src/components/AddCaseForm.js
 import React, { useEffect, useState } from 'react';
 import { auth, db, storage } from '../firebase'; // Import auth, db, and storage from firebase.js
-import { collection, addDoc, query, where, onSnapshot } from 'firebase/firestore';
+import {
+  collection,
+  addDoc,
+  query,
+  where,
+  onSnapshot,
+} from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../styles/AddCaseForm.css';
 
 function AddCaseForm() {
   const [selectedProvince, setSelectedProvince] = useState('');
@@ -22,7 +29,8 @@ function AddCaseForm() {
   const [description, setDescription] = useState('');
   const [documentFile, setDocumentFile] = useState(null);
   const [protectionOrderDetails, setProtectionOrderDetails] = useState('');
-  const [protectionOrderModalOpen, setProtectionOrderModalOpen] = useState(false);
+  const [protectionOrderModalOpen, setProtectionOrderModalOpen] =
+    useState(false);
   const [cases, setCases] = useState([]); // State to store fetched cases
 
   const handleInputChange = (e) => {
@@ -346,8 +354,6 @@ function AddCaseForm() {
           </div>
         </div>
       )}
-
-     
     </div>
   );
 }
