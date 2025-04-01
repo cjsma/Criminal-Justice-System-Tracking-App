@@ -5,7 +5,7 @@ import {
   Navigate,
   useLocation,
 } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import LandingPage from './pages/LandingPage';
 import SignUpPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
@@ -26,6 +26,7 @@ import AddCase from './pages/AddCase';
 
 function AppContent() {
   const location = useLocation();
+  const { role, correctionalServiceAdded } = useAuth(); // Access role & correctionalServiceAdded state
   const hideHeaderRoutes = ['/'];
   const isLandingPage = location.pathname === '/';
 
@@ -45,14 +46,18 @@ function AppContent() {
           <Route path="/edit-profile" element={<EditProfile />} />
 
           {/* Protected Routes */}
-          <Route
-            path="/police-officer-dashboard"
-            element={
-              <ProtectedRoute allowedRoles={['police_officer']}>
-                <PoliceOfficerDashboard />
-              </ProtectedRoute>
-            }
-          />
+          {/* Hide Police Officer Dashboard if correctional service info is added */}
+          {!correctionalServiceAdded && role === 'police_officer' && (
+            <Route
+              path="/police-officer-dashboard"
+              element={
+                <ProtectedRoute allowedRoles={['police_officer']}>
+                  <PoliceOfficerDashboard />
+                </ProtectedRoute>
+              }
+            />
+          )}
+
           <Route
             path="/general-user-dashboard"
             element={
