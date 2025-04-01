@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { auth } from '../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { Link, useNavigate } from 'react-router-dom';
+import { X } from 'lucide-react'; // Importing Lucide React X icon
 import '../styles/Header.css';
 import logo from '../assets/logo.png';
 
@@ -12,6 +13,7 @@ function Header() {
   const [profile, setProfile] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
 
   // Fetch user data on component mount
   useEffect(() => {
@@ -48,6 +50,23 @@ function Header() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
   return (
     <>
       {/* Header Navigation */}
@@ -79,7 +98,14 @@ function Header() {
               <span>{profile?.name || user.email}</span>
             </div>
             {isDropdownOpen && (
-              <div className="dropdown">
+              <div className="dropdown" ref={dropdownRef}>
+                {/* Close Button */}
+                <button
+                  className="close-btn"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  <X size={20} />
+                </button>
                 <Link to="/profile">View Profile</Link>
                 <Link to="/edit-profile">Edit Profile</Link>
                 <button onClick={handleLogout}>Logout</button>
