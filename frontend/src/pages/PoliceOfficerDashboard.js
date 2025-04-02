@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { db } from '../firebase'; // Import your Firebase configuration
-import { collection, addDoc } from 'firebase/firestore'; // Firestore functions
-import '../styles/PoliceOfficerDashboard.css'; // Import the CSS file
+import { Link, useNavigate } from 'react-router-dom';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import '../styles/PoliceOfficerDashboard.css';
 
-// Data for correctional services by province
 const correctionalServicesByProvince = {
   Gauteng: [
     'Leeuhof Prison Hospital',
@@ -54,8 +53,13 @@ const correctionalServicesByProvince = {
 };
 
 const PoliceOfficerDashboard = () => {
+  const navigate = useNavigate();
   const [selectedProvince, setSelectedProvince] = useState('');
   const [services, setServices] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  
   const [formData, setFormData] = useState({
     province: '',
     serviceName: '',
@@ -64,16 +68,15 @@ const PoliceOfficerDashboard = () => {
     ranking: '',
   });
 
-  // Update services when province changes
   useEffect(() => {
     if (selectedProvince) {
       setServices(correctionalServicesByProvince[selectedProvince] || []);
+      setFormData(prev => ({ ...prev, serviceName: '' }));
     } else {
       setServices([]);
     }
   }, [selectedProvince]);
 
-  // Handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -86,31 +89,25 @@ const PoliceOfficerDashboard = () => {
     }
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitError(null);
+    setIsSubmitting(true);
 
     try {
-      // Add form data to Firestore
-      const docRef = await addDoc(collection(db, 'policeOfficers'), formData);
-      console.log('Document written with ID: ', docRef.id);
-
-      // Show success message
-      alert('Form submitted successfully!');
-
-      // Reset form
-      setFormData({
-        province: '',
-        serviceName: '',
-        officerName: '',
-        employeeNumber: '',
-        ranking: '',
-      });
-      setSelectedProvince('');
-      setServices([]);
+      await addDoc(collection(db, 'policeOfficers'), formData);
+      setSubmitSuccess(true);
+      
+      // Redirect to dashboard after 2 seconds
+      setTimeout(() => {
+        navigate('/dashboard'); // Change to your actual dashboard route
+      }, 2000);
+      
     } catch (error) {
       console.error('Error adding document: ', error);
-      alert('An error occurred while submitting the form.');
+      setSubmitError('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -125,7 +122,7 @@ const PoliceOfficerDashboard = () => {
           />
         </div>
         <h1>Correctional Service Information</h1>
-        {/* Navigation Links */}
+        
         <nav>
           <ul>
             <li>
@@ -133,6 +130,19 @@ const PoliceOfficerDashboard = () => {
             </li>
           </ul>
         </nav>
+
+        {submitSuccess && (
+          <div className="success-message">
+            Form submitted successfully! Redirecting to dashboard...
+          </div>
+        )}
+
+        {submitError && (
+          <div className="error-message">
+            {submitError}
+          </div>
+        )}
+
         <form id="PoliceOfficerDashboard" onSubmit={handleSubmit}>
           <label htmlFor="province">Province</label>
           <select
@@ -231,7 +241,13 @@ const PoliceOfficerDashboard = () => {
             </option>
           </select>
 
-          <button type="submit">Submit</button>
+          <button 
+            type="submit" 
+            disabled={isSubmitting}
+            className={isSubmitting ? 'submitting' : ''}
+          >
+            {isSubmitting ? 'Submitting...' : 'Submit'}
+          </button>
         </form>
       </div>
     </div>

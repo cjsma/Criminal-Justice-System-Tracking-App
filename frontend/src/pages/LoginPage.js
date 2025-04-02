@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
-import { ClipLoader } from 'react-spinners'; // For the loading spinner
+import { ClipLoader, SomeSpinnerComponent } from 'react-spinners'; // For the loading spinner
 import '../styles/Login.css';
 
 function LoginPage() {
