@@ -58,6 +58,11 @@ function SignupPage() {
 
   return (
     <div className="signup-container">
+      <img
+        src="https://i.postimg.cc/FH0rkXfF/IMG-20241205-WA0007.png"
+        alt="App Logo"
+        className="logo"
+      />
       <h2>Sign Up</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleSignUp}>

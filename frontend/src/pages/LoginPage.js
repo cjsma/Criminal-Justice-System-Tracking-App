@@ -70,12 +70,13 @@ function LoginPage() {
     }
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
   return (
     <div className="login-container pt-20">
+      <img
+        src="https://i.postimg.cc/FH0rkXfF/IMG-20241205-WA0007.png"
+        alt="App Logo"
+        className="logo"
+      />
       <h2>Login</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
@@ -96,15 +97,8 @@ function LoginPage() {
             required
             disabled={loading}
           />
-          <button
-            type="button"
-            className="toggle-password"
-            onClick={togglePasswordVisibility}
-          >
-            {showPassword ? '🙈' : '👁️'}
-          </button>
         </div>
-        <button type="submit" className="btn-primary" disabled={loading}>
+        <button type="submit" className="button" disabled={loading}>
           {loading ? <ClipLoader size={20} color="#ffffff" /> : 'Login'}
         </button>
       </form>

@@ -41,8 +41,8 @@
 /* Save Changes Button */
 .edit-profile-page button {
   padding: 10px;
-  background-color: #02b7ff;
-  color: #ffffff;
+  background-color: #fbf5df;
+  color: #333;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -51,7 +51,7 @@
 }
 
 .edit-profile-page button:hover {
-  background-color: #0199cc;
+  background-color: #fbf5df;
   transform: scale(1.05);
 }
 

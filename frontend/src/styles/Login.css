@@ -1,81 +1,50 @@
 /* Main container */
 .login-container {
+  text-align: center;
+  min-width: 600px;
+  max-height: 600px;
+  max-width: 600px; /* Reduced width for better responsiveness */
+  padding: 20px;
+  background-color: #02b7ffa8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
+  margin: 50px auto; /* Centered the container */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 800px; /* Increased size */
-  margin: 70px auto;
-  padding: 80px; /* Increased padding */
-  background: linear-gradient(
-    135deg,
-    #aec6cf,
-    #f3f3f3
-  ); /* Updated to soft blue */
-  border-radius: 16px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-container:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(
-    135deg,
-    #92b4c9,
-    #e0e0e0
-  ); /* Hover effect with darker blue */
+/* Logo */
+.login-container .logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
 }
 
 /* Title */
 .login-container h2 {
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 1.8rem; /* Slightly smaller */
+  font-weight: 700;
   color: #3a3a3a;
-  margin-bottom: 40px; /* Increased margin */
+  margin-bottom: 25px;
   text-align: center;
-  letter-spacing: 1.2px;
   text-transform: uppercase;
 }
 
 /* Error message */
 .error-message {
   color: #ff4d4f;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  margin-bottom: 15px;
   text-align: center;
   background: #ffe6e6;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   border-left: 4px solid #ff4d4f;
-}
-
-.error-message::before {
-  content: '⚠️';
-  animation: shake 0.5s ease-in-out;
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-4px);
-  }
-  50% {
-    transform: translateX(4px);
-  }
-  75% {
-    transform: translateX(-4px);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 
 /* Form styling */
@@ -83,18 +52,18 @@ form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px; /* Increased gap */
+  gap: 20px;
 }
 
 /* Input fields */
 input[type='text'],
 input[type='email'],
 input[type='password'] {
-  width: 100%;
-  padding: 18px; /* Increased padding */
-  border-radius: 10px;
+  width: auto;
+  padding: 14px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1.2rem; /* Increased font size */
+  font-size: 1rem;
   background-color: #ffffff;
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
@@ -102,13 +71,13 @@ input[type='password'] {
 /* Input focus and hover effects */
 input:focus {
   border-color: #007bff;
-  box-shadow: 0 0 12px rgba(0, 123, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
   outline: none;
 }
 
 input:hover {
   border-color: #0056b3;
-  box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
+  box-shadow: 0 0 6px rgba(0, 86, 179, 0.5);
 }
 
 /* Password input container */
@@ -120,7 +89,7 @@ input:hover {
 
 .password-input-container input {
   width: 100%;
-  padding-right: 40px; /* Space for the toggle button */
+  padding-right: 35px;
 }
 
 .toggle-password {
@@ -129,7 +98,7 @@ input:hover {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   padding: 0;
   color: #666;
   transition: color 0.3s ease;
@@ -141,23 +110,22 @@ input:hover {
 
 /* Submit button */
 button[type='submit'] {
-  width: 100%;
-  padding: 20px; /* Increased padding */
-  background: linear-gradient(90deg, #007bff, #0056b3);
-  color: white;
+  padding: 10px 20px;
+  background: #fbf5df;
+  color: #333;
   border: none;
-  border-radius: 10px;
-  font-size: 1.5rem; /* Increased font size */
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.5s ease, transform 0.4s ease; /* Slower animation */
-  margin-top: 30px; /* Increased margin */
+  transition: background 0.4s ease, transform 0.3s ease;
+  margin-top: 20px;
   text-transform: uppercase;
 }
 
 /* Button hover effect */
 button[type='submit']:hover {
   background: linear-gradient(90deg, #0056b3, #004099);
-  transform: scale(1.08);
+  transform: scale(1.03);
 }
 
 /* Button disabled state */
@@ -167,25 +135,25 @@ button[type='submit']:disabled {
   transform: none;
 }
 
-/* Responsive Design */
+/* ✅ Responsive Design */
 @media (max-width: 768px) {
   .login-container {
-    padding: 50px; /* Increased padding for smaller screens */
-    max-width: 95%;
+    width: 90%; /* Adjust width */
+    padding: 30px;
   }
 
   .login-container h2 {
-    font-size: 2.8rem; /* Slightly increased title size */
+    font-size: 1.5rem;
   }
 
   input[type='text'],
   input[type='email'],
   input[type='password'] {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   button[type='submit'] {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
