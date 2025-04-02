@@ -27,13 +27,14 @@ import AddCase from './pages/AddCase';
 function AppContent() {
   const location = useLocation();
   const { role, correctionalServiceAdded } = useAuth(); // Access role & correctionalServiceAdded state
-  const hideHeaderRoutes = ['/'];
+  const hideHeaderRoutes = ['/', '/login', '/signup']; // Include the signup page in this list
   const isLandingPage = location.pathname === '/';
 
   return (
     <div
       className={`App ${isLandingPage ? 'landing-layout' : 'default-layout'}`}
     >
+      {/* Conditionally render Header */}
       {!hideHeaderRoutes.includes(location.pathname) && <Header />}
 
       <main className="content-wrapper">

@@ -5,17 +5,19 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 700px; /* Increased max width for a more spacious form */
+  max-width: 600px; /* Increased max width for a more spacious form */
   margin: 60px auto;
   padding: 60px;
-  background: linear-gradient(
-    135deg,
-    #aec6cf,
-    #f3f3f3
-  ); /* Soft blue gradient */
+  background: #02b7ffd2;
   border-radius: 20px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-container .logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
 }
 
 .signup-container:hover {
@@ -25,8 +27,8 @@
 
 /* Title */
 .signup-container h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 600;
   color: #333;
   margin-bottom: 35px;
   text-align: center;
@@ -81,13 +83,12 @@ form {
   gap: 20px;
 }
 
-/* Input fields */
 input[type='text'],
 input[type='email'],
 input[type='tel'],
 input[type='password'],
 select {
-  width: 100%;
+  width: auto;
   padding: 15px;
   border-radius: 12px;
   border: 1px solid #ccc;

@@ -3,9 +3,9 @@
   max-width: 1200px;
   margin: 20px auto;
   padding: 40px 30px;
-  background-color: #f9f9f9;
+  background-color: #f0f8ff;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(29, 127, 232, 0.633);
   margin-bottom: 50px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -35,8 +35,8 @@
 /* Button styles */
 .general-user-dashboard button {
   padding: 12px 24px;
-  background-color: #02b7ff;
-  color: #ffffff;
+  background-color: #fbf5df;
+  color: #444;
   border: none;
   border-radius: 8px;
   font-size: 18px;
@@ -47,7 +47,7 @@
 }
 
 .general-user-dashboard button:hover {
-  background-color: #0199cc;
+  background-color: #fbf5df;
   transform: scale(1.05);
 }
 
