@@ -39,7 +39,6 @@ function Profile() {
 
   return (
     <div className="profile-page">
-      <h1>Profile</h1>
       <div className="profile-info">
         <img
           src={currentUser?.photoURL || 'https://via.placeholder.com/150'}

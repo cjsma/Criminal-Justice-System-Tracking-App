@@ -102,6 +102,15 @@ function LoginPage() {
           {loading ? <ClipLoader size={20} color="#ffffff" /> : 'Login'}
         </button>
       </form>
+      <div className="signup-actions">
+        <button
+          type="button"
+          className="btn-secondary"
+          onClick={() => navigate('/')}
+        >
+          Go Back Home
+        </button>
+      </div>
     </div>
   );
 }

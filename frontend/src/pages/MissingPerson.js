@@ -39,6 +39,15 @@ const MissingPersons = () => {
             List of Missing Persons
           </button>
         </div>
+        <div className="signup-actions">
+          <button
+            type="button"
+            className="btn-secondary"
+            onClick={() => navigate('/Police_officer_dashboard')}
+          >
+            Go back
+          </button>
+        </div>
       </div>
     </div>
   );
