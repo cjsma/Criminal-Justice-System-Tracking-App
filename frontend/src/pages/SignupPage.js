@@ -56,6 +56,18 @@ function SignupPage() {
     }
   };
 
+  // Handle cancel action (reset form)
+  const handleCancel = () => {
+    setFirstName('');
+    setLastName('');
+    setIdNumber('');
+    setPhone('');
+    setEmail('');
+    setPassword('');
+    setRole('general_user');
+    setError('');
+  };
+
   return (
     <div className="signup-container">
       <img
@@ -101,10 +113,7 @@ function SignupPage() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <PasswordStrengthBar
-          password={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <PasswordStrengthBar password={password} />
         <input
           type="password"
           placeholder="Password"
@@ -120,6 +129,15 @@ function SignupPage() {
           {loading ? 'Signing Up...' : 'Sign Up'}
         </button>
       </form>
+      <div className="signup-actions">
+        <button
+          type="button"
+          className="btn-secondary"
+          onClick={() => navigate('/')}
+        >
+          Go Back Home
+        </button>
+      </div>
     </div>
   );
 }
