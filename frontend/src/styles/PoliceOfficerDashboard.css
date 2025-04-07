@@ -2,18 +2,29 @@
 .correctional-service-page {
   font-family: 'Segoe UI', Arial, sans-serif;
   padding: 20px;
-  background: url('https://i.imgur.com/dQFt6o8.jpeg');
-  min-height: 100vh;
+  min-height: 100vh;  
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://i.imgur.com/dQFt6o8.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ 
 }
 
 .form-container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 30px;
-  border: 1px solid #e1e5eb;
-  border-radius: 10px;
-  background-color: #ffffffaa;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fffffffb;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
 }
 
 .logo-container {
@@ -71,20 +82,19 @@ h1 {
 
 label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #34495e;
-  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #444;
 }
 
 input,
 select {
   width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 5px;
-  border: 1px solid #d1d9e6;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   background-color: #f8fafc;
 }
@@ -104,17 +114,17 @@ select[disabled] {
 }
 
 button {
+  display: block;
   width: 100%;
-  padding: 12px;
-  background-color: #3498db;
+  padding: 10px;
+  margin-top: 15px;
+  background: #007bff;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
+  font-size: bold;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  margin-top: 10px;
+  transition:  all 0.3s ease;
 }
 
 button:hover {
@@ -127,7 +137,7 @@ button:active {
 }
 
 button:disabled {
-  background-color: #95a5a6;
+  background-color: #fbf5df;
   cursor: not-allowed;
   transform: none;
 }
