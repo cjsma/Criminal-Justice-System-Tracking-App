@@ -100,6 +100,15 @@ function GeneralUserDashboard() {
                 <p>
                   <strong>Incident Description:</strong> {caseItem.description}
                 </p>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/edit-case/${caseItem.id}`);
+                  }}
+                  className="edit-button"
+                >
+                  Edit
+                </button>
               </div>
             ))}
           </div>

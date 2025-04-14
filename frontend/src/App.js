@@ -23,6 +23,7 @@ import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 import './App.css';
 import AddCase from './pages/AddCase';
+import EditCase from './pages/EditCase';
 
 function AppContent() {
   const location = useLocation();
@@ -91,6 +92,15 @@ function AppContent() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/edit-case/:id"
+            element={
+              <ProtectedRoute allowedRoles={['general_user', 'police_officer']}>
+                <EditCase />
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/report-missing-person"
             element={<ReportMissingPerson />}
