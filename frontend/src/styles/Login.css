@@ -5,7 +5,7 @@
   max-height: 600px;
   max-width: 600px; /* Reduced width for better responsiveness */
   padding: 20px;
-  background-color: #02b7ffa8;
+  background-color: #00b4d8;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgb(0, 0, 0);
   margin: 50px auto; /* Centered the container */
@@ -110,16 +110,17 @@ input:hover {
 
 /* Submit button */
 button[type='submit'] {
-  padding: 10px 20px;
+  width: 150px;
+  padding: 10px 16px;
   background: #fbf5df;
   color: #333;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.4s ease, transform 0.3s ease;
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
   margin-top: 20px;
-  text-transform: uppercase;
 }
 
 /* Button hover effect */
