@@ -113,7 +113,7 @@ select:focus {
 
 /* Submit button */
 button[type='submit'] {
-  width: 100%;
+  width: 150px;
   padding: 16px;
   background: linear-gradient(90deg, #007bff, #0056b3);
   color: white;
@@ -123,7 +123,6 @@ button[type='submit'] {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
   margin-top: 25px;
-  text-transform: uppercase;
 }
 
 /* Button hover effect */

@@ -12,8 +12,10 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/AddCaseForm.css';
+import { useNavigate } from 'react-router-dom';
 
 function AddCaseForm() {
+  const navigate = useNavigate();
   const [selectedProvince, setSelectedProvince] = useState('');
   const [services, setServices] = useState([]);
   const [formData, setFormData] = useState({
@@ -307,7 +309,13 @@ function AddCaseForm() {
         </label>
 
         <button type="submit">Add Case</button>
-
+        <button
+          type="button"
+          className="cancel-button"
+          onClick={() => navigate(-1)}
+        >
+          Cancel
+        </button>
         {/* Protection Order Modal */}
         <button type="button" onClick={() => setProtectionOrderModalOpen(true)}>
           Apply for Protection Order
@@ -350,6 +358,13 @@ function AddCaseForm() {
             </button>
             <button onClick={() => setProtectionOrderModalOpen(false)}>
               Close
+            </button>
+            <button
+              type="button"
+              className="cancel-button"
+              onClick={() => navigate(-1)}
+            >
+              Cancel
             </button>
           </div>
         </div>

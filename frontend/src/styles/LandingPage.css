@@ -11,12 +11,12 @@
   text-align: center;
   max-height: 600px;
   max-width: 600px;
-  padding: 10px;
+  padding: 20px;
   background-color: #00b4d8;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgb(0, 0, 0);
-  margin-bottom: 50px;
   justify-content: center;
+  margin: 50px auto;
 }
 
 .hero-content .logo {

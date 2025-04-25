@@ -77,6 +77,14 @@ const ListMissingPersons = () => {
       <button onClick={() => navigate('/report-missing-person')}>
         Report New Missing Person
       </button>
+
+      <button
+        type="button"
+        className="btn-secondary"
+        onClick={() => navigate(-1)}
+      >
+        Go Back
+      </button>
     </div>
   );
 };

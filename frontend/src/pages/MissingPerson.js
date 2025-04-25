@@ -43,7 +43,7 @@ const MissingPersons = () => {
           <button
             type="button"
             className="btn-secondary"
-            onClick={() => navigate('/Police_officer_dashboard')}
+            onClick={() => navigate(-1)}
           >
             Go back
           </button>

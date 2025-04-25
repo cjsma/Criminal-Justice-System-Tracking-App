@@ -3,10 +3,10 @@
 /* Container for the entire component */
 .report-missing-person-container {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 40px;
   font-family: Arial, sans-serif;
-  background-color: #f9f7f763;
+  background-color: #00b4d8;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
