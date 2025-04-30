@@ -3,13 +3,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #00b4d8;
+  background-color: #02b7ff;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  width: 90px; /* Adjust logo size */
+  width: 80px; /* Adjust logo size */
   height: auto;
 }
 
@@ -21,9 +21,9 @@
 }
 
 .nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+  list-style:circle;
+  display:flex;
+  gap: 25px;
   margin: 0;
   padding: 0;
 }
@@ -50,8 +50,8 @@
 }
 
 .profile-pic {
-  width: 60px;
-  height: 60px;
+  width:50px;
+  height:50px;
   border-radius: 50%;
   object-fit: cover;
 }
