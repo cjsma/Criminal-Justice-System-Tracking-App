@@ -1,7 +1,7 @@
 /* General Styles */
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   color: #333;
   line-height: 1.6;
   background-color: #f9f9f9;
@@ -13,7 +13,8 @@ body {
 
 /* Hero Section with Background Image */
 .hero-section {
-  background: url("https://i.postimg.cc/WbYYYQbq/IMG-20241205-WA0028.jpg") no-repeat center center/cover;
+  background: url('https://i.postimg.cc/WbYYYQbq/IMG-20241205-WA0028.jpg')
+    no-repeat center center/cover;
   color: white;
   padding: 80px 20px;
   text-align: center;
@@ -26,7 +27,7 @@ body {
 
 /* Dark overlay to improve text readability */
 .hero-section::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -95,9 +96,9 @@ body {
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: #004080;
   color: white;
-  border: 2px solid white;
+  border: 2px solid #004080;
 }
 
 .btn-primary:hover {
@@ -279,14 +280,15 @@ body {
 /* Contact Section */
 .contact-section {
   padding: 80px 20px;
-  background: url("https://i.postimg.cc/WbYYYQbq/IMG-20241205-WA0028.jpg") no-repeat center center/cover;
+  background: url('https://i.postimg.cc/WbYYYQbq/IMG-20241205-WA0028.jpg')
+    no-repeat center center/cover;
   color: white;
   text-align: center;
   position: relative;
 }
 
 .contact-section::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -361,20 +363,20 @@ body {
     padding: 60px 15px;
     min-height: 50vh;
   }
-  
+
   .features-section,
   .stats-section,
   .mission-section,
   .contact-section {
     padding: 50px 15px;
   }
-  
+
   .feature-card,
   .stat-card,
   .mission-item {
     max-width: 100%;
   }
-  
+
   .contact-content {
     padding: 30px 20px;
   }
