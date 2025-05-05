@@ -1,48 +1,47 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-between;
+  padding: 16px 40px;
   background-color: #02b7ff;
   color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; /* For proper dropdown positioning */
-  z-index: 100; /* Ensures header stays above other content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
-  width: 80px;
-  height: auto;
-  display: flex; /* Better alignment */
-  align-items: flex-start;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.logo a {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.nav {
+  flex: 2;
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .nav ul {
-  list-style: none; /* Fixed from 'circle' to 'none' */
   display: flex;
-  gap: 25px;
+  gap: 30px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav ul li {
-  display: inline-block; /* Better for list items */
-}
-
 .nav ul li a {
   color: white;
-  text-decoration: none;
   font-size: 16px;
-  transition: text-decoration 0.2s ease; /* Smooth hover effect */
+  text-decoration: none;
+  transition: 0.2s;
 }
 
 .nav ul li a:hover {
@@ -50,73 +49,79 @@
 }
 
 .profile-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
   position: relative;
 }
 
 .profile {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
+  color: white;
 }
 
 .profile-pic {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
 .dropdown {
   position: absolute;
-  top: 100%; /* Better alignment under profile */
+  top: 100%;
   right: 0;
+  margin-top: 10px;
   background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: none; /* Controlled by JS */
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-  min-width: 150px;
-  z-index: 1000;
-}
-
-.profile-section:hover .dropdown,
-.profile-section:focus-within .dropdown {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 12px;
   display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 1000;
 }
 
 .dropdown a,
 .dropdown button {
-  color: #333;
-  text-decoration: none;
+  text-align: left;
   font-size: 14px;
+  color: #333;
   background: none;
   border: none;
+  padding: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  text-align: left;
-  padding: 5px 10px;
-  border-radius: 3px;
-  transition: all 0.2s ease;
+  transition: 0.2s;
 }
 
 .dropdown a:hover,
 .dropdown button:hover {
-  color: #02b7ff;
   background-color: #f5f5f5;
+  color: #02b7ff;
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 8px;
 }
 
 .login-button {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  padding: 8px 16px;
+  background: none;
   border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
   border-radius: 5px;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
 .login-button:hover {

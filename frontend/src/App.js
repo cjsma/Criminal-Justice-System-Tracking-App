@@ -5,6 +5,7 @@ import {
   Navigate,
   useLocation,
 } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import LandingPage from './pages/LandingPage';
 import SignUpPage from './pages/SignupPage';
@@ -21,22 +22,30 @@ import ListMissingPerson from './pages/ListMissingPerson';
 import Header from './components/Header';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
-import './App.css';
 import AddCase from './pages/AddCase';
 import EditCase from './pages/EditCase';
 
+import './App.css';
+
 function AppContent() {
   const location = useLocation();
-  const { role, correctionalServiceAdded } = useAuth(); // Access role & correctionalServiceAdded state
-  const hideHeaderRoutes = ['/', '/login', '/signup']; // Include the signup page in this list
+  const { role, correctionalServiceAdded } = useAuth();
+  const [showHeader, setShowHeader] = useState(true);
+
+  useEffect(() => {
+    // Normalize pathname (removes trailing slashes and lowers case)
+    const currentPath = location.pathname.replace(/\/+$/, '').toLowerCase();
+    const hiddenPaths = ['', '/signup', '/login'];
+    setShowHeader(!hiddenPaths.includes(currentPath));
+  }, [location.pathname]);
+
   const isLandingPage = location.pathname === '/';
 
   return (
     <div
       className={`App ${isLandingPage ? 'landing-layout' : 'default-layout'}`}
     >
-      {/* Conditionally render Header */}
-      {!hideHeaderRoutes.includes(location.pathname) && <Header />}
+      {showHeader && <Header />}
 
       <main className="content-wrapper">
         <Routes>
@@ -48,7 +57,6 @@ function AppContent() {
           <Route path="/edit-profile" element={<EditProfile />} />
 
           {/* Protected Routes */}
-          {/* Hide Police Officer Dashboard if correctional service info is added */}
           {!correctionalServiceAdded && role === 'police_officer' && (
             <Route
               path="/police-officer-dashboard"
@@ -100,7 +108,6 @@ function AppContent() {
               </ProtectedRoute>
             }
           />
-
           <Route
             path="/report-missing-person"
             element={<ReportMissingPerson />}
@@ -114,6 +121,7 @@ function AppContent() {
               </ProtectedRoute>
             }
           />
+
           {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
