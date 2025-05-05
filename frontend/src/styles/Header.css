@@ -6,11 +6,15 @@
   background-color: #02b7ff;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* For proper dropdown positioning */
+  z-index: 100; /* Ensures header stays above other content */
 }
 
 .logo {
-  width: 80px; /* Adjust logo size */
+  width: 80px;
   height: auto;
+  display: flex; /* Better alignment */
+  align-items: flex-start;
 }
 
 .logo a {
@@ -18,20 +22,27 @@
   font-weight: bold;
   color: white;
   text-decoration: none;
+  display: flex;
+  align-items: flex-start;
 }
 
 .nav ul {
-  list-style: circle;
+  list-style: none; /* Fixed from 'circle' to 'none' */
   display: flex;
   gap: 25px;
   margin: 0;
   padding: 0;
 }
 
+.nav ul li {
+  display: inline-block; /* Better for list items */
+}
+
 .nav ul li a {
   color: white;
   text-decoration: none;
   font-size: 16px;
+  transition: text-decoration 0.2s ease; /* Smooth hover effect */
 }
 
 .nav ul li a:hover {
@@ -54,21 +65,28 @@
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border */
 }
 
 .dropdown {
   position: absolute;
-  top: 50px;
+  top: 100%; /* Better alignment under profile */
   right: 0;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
+  display: none; /* Controlled by JS */
   flex-direction: column;
   gap: 10px;
   padding: 10px;
+  min-width: 150px;
   z-index: 1000;
+}
+
+.profile-section:hover .dropdown,
+.profile-section:focus-within .dropdown {
+  display: flex;
 }
 
 .dropdown a,
@@ -80,11 +98,15 @@
   border: none;
   cursor: pointer;
   text-align: left;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
 }
 
 .dropdown a:hover,
 .dropdown button:hover {
   color: #02b7ff;
+  background-color: #f5f5f5;
 }
 
 .login-button {
@@ -94,6 +116,7 @@
   padding: 8px 16px;
   border: 1px solid white;
   border-radius: 5px;
+  transition: all 0.2s ease;
 }
 
 .login-button:hover {
