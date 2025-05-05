@@ -21,8 +21,8 @@
 }
 
 .nav ul {
-  list-style:circle;
-  display:flex;
+  list-style: circle;
+  display: flex;
   gap: 25px;
   margin: 0;
   padding: 0;
@@ -50,8 +50,8 @@
 }
 
 .profile-pic {
-  width:50px;
-  height:50px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
