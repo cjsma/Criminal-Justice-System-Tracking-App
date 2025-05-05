@@ -5,7 +5,7 @@
   max-height: 600px;
   max-width: 600px; /* Reduced width for better responsiveness */
   padding: 20px;
-  background-color: #00b4d8;
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgb(0, 0, 0);
   margin: 50px auto; /* Centered the container */
@@ -25,7 +25,7 @@
 .login-container h2 {
   font-size: 1.8rem; /* Slightly smaller */
   font-weight: 700;
-  color: #3a3a3a;
+  color: #3a3838;
   margin-bottom: 25px;
   text-align: center;
   text-transform: uppercase;
@@ -62,7 +62,7 @@ input[type='password'] {
   width: auto;
   padding: 14px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #0e77da;
   font-size: 1rem;
   background-color: #ffffff;
   transition: border 0.3s ease, box-shadow 0.3s ease;
@@ -112,8 +112,8 @@ input:hover {
 button[type='submit'] {
   width: 150px;
   padding: 10px 16px;
-  background: #fbf5df;
-  color: #333;
+  background: #101c79;
+  color: #fefefe;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -131,7 +131,7 @@ button[type='submit']:hover {
 
 /* Button disabled state */
 button[type='submit']:disabled {
-  background: #bbb;
+  background: #bbbbbb;
   cursor: not-allowed;
   transform: none;
 }
@@ -163,4 +163,12 @@ input:focus-visible,
 button:focus-visible {
   outline: 2px solid #007bff;
   outline-offset: 2px;
+}
+.btn-secondary{
+  color: #06cbcb;
+}
+
+button[type='button']{
+  background: #101c79;
+  transform: none;
 }
