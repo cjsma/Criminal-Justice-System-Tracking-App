@@ -24,6 +24,7 @@ import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 import AddCase from './pages/AddCase';
 import EditCase from './pages/EditCase';
+import MissingPersonDetails from './pages/MissingPersonDetails';
 
 import './App.css';
 
@@ -120,6 +121,11 @@ function AppContent() {
                 <AddCase />
               </ProtectedRoute>
             }
+          />
+
+          <Route
+            path="/missing-person/:id"
+            element={<MissingPersonDetails />}
           />
 
           {/* Fallback Route */}

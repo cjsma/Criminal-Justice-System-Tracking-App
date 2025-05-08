@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
-import '../styles/ListMissingPersons.css'; // Import the CSS file
+import '../styles/ListMissingPersons.css';
 
 const ListMissingPersons = () => {
   const [missingPersons, setMissingPersons] = useState([]);
@@ -10,7 +10,6 @@ const ListMissingPersons = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Fetch missing persons data from Firestore
   useEffect(() => {
     const fetchMissingPersons = async () => {
       try {
@@ -18,11 +17,12 @@ const ListMissingPersons = () => {
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
+          reportedAt: doc.data().reportedAt?.toDate().toLocaleString() || 'N/A',
         }));
         setMissingPersons(data);
       } catch (error) {
         console.error('Error fetching missing persons:', error);
-        setError('Failed to fetch data.');
+        setError('Failed to fetch data. Please try again later.');
       } finally {
         setLoading(false);
       }
@@ -31,60 +31,92 @@ const ListMissingPersons = () => {
     fetchMissingPersons();
   }, []);
 
+  const handleImageError = (e) => {
+    e.target.onerror = null;
+    e.target.src = '/placeholder-profile.jpg'; // Fallback image
+    e.target.style.display = 'none'; // Or show a placeholder
+  };
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Loading missing persons...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error-container">
+        <p className="error-message">{error}</p>
+        <button onClick={() => window.location.reload()}>Retry</button>
+      </div>
+    );
+  }
+
   return (
     <div className="list-missing-persons-container">
-      <h1>List of Missing Persons</h1>
-      {loading ? (
-        <p className="loading">Loading...</p>
-      ) : error ? (
-        <p className="error-message">{error}</p>
+      <header className="list-header">
+        <h1>Missing Persons Registry</h1>
+        <div className="action-buttons">
+          <button
+            className="btn-primary"
+            onClick={() => navigate('/report-missing-person')}
+          >
+            Report New Missing Person
+          </button>
+          <button className="btn-secondary" onClick={() => navigate(-1)}>
+            Go Back
+          </button>
+        </div>
+      </header>
+
+      {missingPersons.length === 0 ? (
+        <div className="no-results">
+          <p>No missing persons records found.</p>
+        </div>
       ) : (
-        <ul>
+        <div className="missing-persons-grid">
           {missingPersons.map((person) => (
-            <li key={person.id}>
-              <strong>{person.name}</strong> (Age: {person.age}) - Last seen in{' '}
-              {person.lastSeen}
-              <p>{person.description}</p>
-              {/* Display photo if available */}
+            <div key={person.id} className="person-card">
+              {/* Image section - only shown if photoUrl exists */}
               {person.photoUrl && (
-                <div className="photo-container">
+                <div className="image-section">
                   <img
                     src={person.photoUrl}
                     alt={`${person.name}`}
-                    className="photo"
+                    className="person-image"
+                    onError={handleImageError}
                   />
                 </div>
               )}
-              {/* Display documents if available */}
-              {person.documentUrls && person.documentUrls.length > 0 && (
-                <div className="documents-container">
-                  <h4>Documents:</h4>
-                  <ul>
-                    {person.documentUrls.map((url, index) => (
-                      <li key={index}>
-                        <a href={url} target="_blank" rel="noopener noreferrer">
-                          Document {index + 1}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-      <button onClick={() => navigate('/report-missing-person')}>
-        Report New Missing Person
-      </button>
 
-      <button
-        type="button"
-        className="btn-secondary"
-        onClick={() => navigate(-1)}
-      >
-        Go Back
-      </button>
+              <div className="person-info">
+                <h2>{person.name}</h2>
+                <p>
+                  <strong>Age:</strong> {person.age || 'Unknown'}
+                </p>
+                <p>
+                  <strong>Last Seen:</strong> {person.lastSeenDate} at{' '}
+                  {person.lastSeenLocation}
+                </p>
+                <p>
+                  <strong>Reported:</strong> {person.reportedAt}
+                </p>
+                <p className="description">{person.description}</p>
+              </div>
+
+              <button
+                className="details-btn"
+                onClick={() => navigate(`/missing-person/${person.id}`)}
+              >
+                View Details
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
