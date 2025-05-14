@@ -119,13 +119,32 @@ const PoliceOfficerDashboard = () => {
         </div>
         <h1>Correctional Service Information</h1>
 
-        <nav>
-          <ul>
-            <li>
-              <Link to="/missingPerson">Missing Persons</Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="action-buttons">
+          <button
+            onClick={() => navigate('/missingPerson')}
+            className="action-button"
+          >
+            Report Missing Person
+          </button>
+          <button
+            onClick={() => navigate('/addCase')}
+            className="action-button"
+          >
+            Add New Case
+          </button>
+          <button
+            onClick={() => navigate('/applyProtection')}
+            className="action-button"
+          >
+            Apply for Protection
+          </button>
+          <button
+            onClick={() => navigate('/wantedPeople')}
+            className="action-button"
+          >
+            Wanted by Law
+          </button>
+        </div>
 
         {submitError && <div className="error-message">{submitError}</div>}
 
