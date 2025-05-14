@@ -25,7 +25,10 @@ import EditProfile from './pages/EditProfile';
 import AddCase from './pages/AddCase';
 import EditCase from './pages/EditCase';
 import MissingPersonDetails from './pages/MissingPersonDetails';
-
+import MostWanted from './pages/MostWanted'; // role-aware page
+import AddMostWanted from './pages/AddMostWanted';
+import ManageMostWanted from './pages/ManageMostWanted';
+import ListMostWanted from './pages/ListMostWanted';
 import './App.css';
 
 function AppContent() {
@@ -126,6 +129,42 @@ function AppContent() {
           <Route
             path="/missing-person/:id"
             element={<MissingPersonDetails />}
+          />
+
+          <Route
+            path="/mostWanted"
+            element={
+              <ProtectedRoute allowedRoles={['general_user', 'police_officer']}>
+                <MostWanted />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/list-most-wanted"
+            element={
+              <ProtectedRoute allowedRoles={['general_user', 'police_officer']}>
+                <ListMostWanted />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/add-most-wanted"
+            element={
+              <ProtectedRoute allowedRoles={['police_officer']}>
+                <AddMostWanted />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/manage-most-wanted"
+            element={
+              <ProtectedRoute allowedRoles={['police_officer']}>
+                <ManageMostWanted />
+              </ProtectedRoute>
+            }
           />
 
           {/* Fallback Route */}

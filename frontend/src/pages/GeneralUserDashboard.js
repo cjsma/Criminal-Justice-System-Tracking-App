@@ -64,6 +64,18 @@ function GeneralUserDashboard() {
         <button onClick={() => navigate('/addCase')} className="action-button">
           Add New Case
         </button>
+        <button
+          onClick={() => navigate('/applyProtection')}
+          className="action-button"
+        >
+          Apply for Protection Order
+        </button>
+        <button
+          onClick={() => navigate('/wantedPeople')}
+          className="action-button"
+        >
+          Wanted by Law
+        </button>
       </div>
 
       {/* List of Cases */}
