@@ -1,4 +1,4 @@
-/* AddCaseForm.css */
+/* AddCaseForm.css - Mobile-Friendly */
 
 /* General container styling */
 .container {
@@ -8,46 +8,53 @@
   background: #caf0f8;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Ensures padding on small screens */
+  box-sizing: border-box; /* Prevents overflow */
 }
 
 h2 {
   text-align: center;
   color: #333;
+  font-size: 1.5rem; /* Better scaling on mobile */
+  margin-bottom: 15px;
 }
 
 label {
   display: block;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 15px; /* More spacing for touch */
   color: #444;
+  font-size: 0.95rem; /* Slightly smaller for mobile */
 }
 
 input,
 select,
 textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
+  padding: 12px; /* Larger for easier touch */
+  margin-top: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Prevents overflow */
 }
 
 textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px; /* More space for text input */
 }
 
 button {
   display: block;
-  width: 250px;
-  padding: 10px;
-  margin: 20px auto 0 auto; /* top, right, bottom, left */
+  width: 100%; /* Full-width on mobile */
+  max-width: 250px; /* Limits width on larger screens */
+  padding: 12px;
+  margin: 25px auto 0 auto;
   background: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -67,17 +74,30 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px; /* Prevents edge touching */
+  box-sizing: border-box;
 }
 
 .protection-order-content {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  width: 400px;
+  width: 100%; /* Full width on mobile */
+  max-width: 400px; /* Limits width on larger screens */
   text-align: center;
+  box-sizing: border-box;
 }
 
 .protection-order-content button {
-  width: 48%;
-  margin: 5px;
+  width: 100%; /* Stack buttons vertically on mobile */
+  max-width: 150px; /* Limits button width */
+  margin: 8px auto; /* Better spacing */
+  display: inline-block; /* Allows side-by-side on larger screens */
+}
+
+/* Media Queries for Larger Screens (Optional) */
+@media (min-width: 768px) {
+  .protection-order-content button {
+    width: 48%; /* Side-by-side buttons on tablets/desktops */
+  }
 }

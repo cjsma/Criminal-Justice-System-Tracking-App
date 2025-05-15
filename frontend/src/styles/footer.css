@@ -1,11 +1,30 @@
+/* Footer Styles */
 footer {
   background-color: #333;
   color: #fbf5df;
-  padding: 20px;
+  padding: 15px 10px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 footer p {
   margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (min-width: 480px) {
+  footer {
+    padding: 18px 15px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    padding: 20px;
+    font-size: 1rem;
+  }
 }

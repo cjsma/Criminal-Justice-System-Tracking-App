@@ -139,7 +139,7 @@ const PoliceOfficerDashboard = () => {
             Apply for Protection
           </button>
           <button
-            onClick={() => navigate('/wantedPeople')}
+            onClick={() => navigate('/mostWanted')}
             className="action-button"
           >
             Wanted by Law

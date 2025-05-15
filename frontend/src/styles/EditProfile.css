@@ -1,8 +1,8 @@
 /* Edit Profile Page Container */
 .edit-profile-page {
   max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 15px;
   background-color: #caf0f8;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -11,26 +11,28 @@
 
 /* Heading */
 .edit-profile-page h1 {
-  font-size: 28px;
+  font-size: 24px;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /* Form Styling */
 .edit-profile-page form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 /* Input Fields */
 .edit-profile-page input {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .edit-profile-page input:focus {
@@ -40,7 +42,7 @@
 
 /* Save Changes Button */
 .edit-profile-page button {
-  padding: 10px;
+  padding: 12px;
   background-color: #fbf5df;
   color: #333;
   border: none;
@@ -48,30 +50,44 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .edit-profile-page button:hover {
   background-color: #fbf5df;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .edit-profile-page button:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (min-width: 480px) {
   .edit-profile-page {
-    margin: 20px;
-    padding: 15px;
+    margin: 30px auto;
+    padding: 20px;
   }
-
+  
   .edit-profile-page h1 {
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 20px;
   }
-
-  .edit-profile-page input,
+  
+  .edit-profile-page form {
+    gap: 15px;
+  }
+  
   .edit-profile-page button {
-    font-size: 14px;
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .edit-profile-page {
+    margin: 50px auto;
   }
 }

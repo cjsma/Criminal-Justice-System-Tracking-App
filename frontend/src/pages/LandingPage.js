@@ -26,9 +26,9 @@ function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className="features-section">
+       
+       {/* Features Section */}
+       <section className="features-section">
         <h2>About Us</h2>
         <div className="features-container">
           <div className="feature-card">
@@ -43,6 +43,35 @@ function LandingPage() {
             <h3>Community Support</h3>
             <p>Empower victims and communities with tools to seek justice.</p>
           </div>
+        </div>
+      </section> 
+
+      {/* Services Section */}
+      <section className="features-section">
+        <h2>Services</h2>
+        <div className="features-container"> 
+          
+          <div className="feature-card">
+            <Link to="/login">
+            <h3>Protection Order </h3>
+            <p>Apply for protection oder here</p>
+            </Link>
+          </div>
+          
+          
+          <div className="feature-card">
+            <Link to="/login">
+            <h3>Missing Person</h3>
+            <p>Report a Missing Person here</p>
+            </Link>
+          </div>
+          
+          <Link to="/login">
+          <div className="feature-card">
+            <h3>Wanted Persons</h3>
+            <p>Look for Wanted People here</p>
+          </div>
+          </Link>
         </div>
       </section>
 
