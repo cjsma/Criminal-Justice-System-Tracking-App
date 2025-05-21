@@ -1,0 +1,64 @@
+.protection-order-page {
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.terms-box,
+.form-list-box {
+  background: #fefefe;
+  border: 2px solid #00509e;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  color: #00509e;
+  margin-bottom: 15px;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.accept-button {
+  background: #00509e;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accept-button:hover {
+  background-color: #003f7d;
+}
+
+.forms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-card {
+  background: #ffffff;
+  border: 2px solid #00509e;
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  background-color: #f0f8ff;
+}
