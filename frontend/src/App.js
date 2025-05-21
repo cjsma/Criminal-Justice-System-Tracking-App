@@ -29,6 +29,7 @@ import MostWanted from './pages/MostWanted'; // role-aware page
 import AddMostWanted from './pages/AddMostWanted';
 import ManageMostWanted from './pages/ManageMostWanted';
 import ListMostWanted from './pages/ListMostWanted';
+import ApplyProtectionForm from './pages/ApplyProtectionForm';
 import './App.css';
 
 function AppContent() {
@@ -122,6 +123,15 @@ function AppContent() {
             element={
               <ProtectedRoute allowedRoles={['general_user', 'police_officer']}>
                 <AddCase />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/apply-protection"
+            element={
+              <ProtectedRoute allowedRoles={['general_user']}>
+                <ApplyProtectionForm />
               </ProtectedRoute>
             }
           />
