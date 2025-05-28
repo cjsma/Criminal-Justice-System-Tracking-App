@@ -1,6 +1,5 @@
-// src/components/AddCaseForm.js
 import React, { useEffect, useState } from 'react';
-import { auth, db, storage } from '../firebase'; // Import auth, db, and storage from firebase.js
+import { auth, db } from '../firebase'; // Only using auth and db from Firebase
 import {
   collection,
   addDoc,
@@ -8,7 +7,7 @@ import {
   where,
   onSnapshot,
 } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { supabase } from '../../src/supabaseClient';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/AddCaseForm.css';
@@ -33,21 +32,20 @@ function AddCaseForm() {
   const [protectionOrderDetails, setProtectionOrderDetails] = useState('');
   const [protectionOrderModalOpen, setProtectionOrderModalOpen] =
     useState(false);
-  const [cases, setCases] = useState([]); // State to store fetched cases
+  const [cases, setCases] = useState([]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
 
     if (name === 'province') {
       setSelectedProvince(value);
     }
   };
 
-  // List of police stations for the dropdown
   const policeStationsByProvince = {
     Gauteng: [
       'Leeuhof Prison Hospital',
@@ -96,7 +94,6 @@ function AddCaseForm() {
     ],
   };
 
-  // Update services when province changes
   useEffect(() => {
     if (selectedProvince) {
       setServices(policeStationsByProvince[selectedProvince] || []);
@@ -105,7 +102,6 @@ function AddCaseForm() {
     }
   }, [selectedProvince]);
 
-  // Fetch cases for the current user
   useEffect(() => {
     const user = auth.currentUser;
     if (!user) return;
@@ -122,7 +118,6 @@ function AddCaseForm() {
     return () => unsubscribe();
   }, []);
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -133,18 +128,28 @@ function AddCaseForm() {
         return;
       }
 
-      // Upload document to Firebase Storage if a file is selected
       let documentUrl = '';
       if (documentFile) {
-        const fileRef = ref(
-          storage,
-          `documents/cases/${user.uid}/${documentFile.name}`
-        );
-        await uploadBytes(fileRef, documentFile);
-        documentUrl = await getDownloadURL(fileRef);
+        const filePath = `cases/${user.uid}/${Date.now()}-${documentFile.name}`;
+        const { data, error } = await supabase.storage
+          .from('Case-documents')
+          .upload(filePath, documentFile);
+
+        if (error) {
+          throw error;
+        }
+
+        const { data: publicUrlData, error: publicUrlError } = supabase.storage
+          .from('Case-documents')
+          .getPublicUrl(filePath);
+
+        if (publicUrlError) {
+          throw publicUrlError;
+        }
+
+        documentUrl = publicUrlData.publicUrl;
       }
 
-      // Add case data to Firestore
       await addDoc(collection(db, 'cases'), {
         caseNumber,
         assignedOfficer,
@@ -159,7 +164,6 @@ function AddCaseForm() {
 
       toast.success('Case added successfully!');
 
-      // Reset all form fields
       setFormData({
         province: '',
         serviceName: '',
@@ -175,12 +179,11 @@ function AddCaseForm() {
       setDescription('');
       setDocumentFile(null);
     } catch (error) {
-      console.error('Error adding case:', error);
+      console.error('Error adding case:', error.message);
       toast.error('Failed to add case.');
     }
   };
 
-  // Handle protection order form submission
   const handleProtectionOrderSubmit = async () => {
     const user = auth.currentUser;
     if (!user) {
@@ -204,7 +207,6 @@ function AddCaseForm() {
     }
   };
 
-  // Close modal when clicking outside
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       setProtectionOrderModalOpen(false);
@@ -235,8 +237,6 @@ function AddCaseForm() {
           />
         </label>
         <h2>Correctional Service Information</h2>
-
-        {/* Province Dropdown */}
         <label htmlFor="province">Province</label>
         <select
           id="province"
@@ -254,8 +254,6 @@ function AddCaseForm() {
             </option>
           ))}
         </select>
-
-        {/* Police Station Dropdown */}
         <label htmlFor="serviceName">Police Station Name</label>
         <select
           id="serviceName"
@@ -273,8 +271,6 @@ function AddCaseForm() {
             </option>
           ))}
         </select>
-
-        {/* Status Dropdown */}
         <label>
           Status:
           <select
@@ -288,8 +284,6 @@ function AddCaseForm() {
             <option value="Acquitted">Acquitted</option>
           </select>
         </label>
-
-        {/* Incident Description */}
         <label>
           Incident Description:
           <textarea
@@ -298,8 +292,6 @@ function AddCaseForm() {
             required
           />
         </label>
-
-        {/* Document Upload */}
         <label>
           Upload Document (Optional):
           <input
@@ -307,7 +299,6 @@ function AddCaseForm() {
             onChange={(e) => setDocumentFile(e.target.files[0])}
           />
         </label>
-
         <button type="submit">Add Case</button>
         <button
           type="button"
@@ -316,13 +307,11 @@ function AddCaseForm() {
         >
           Cancel
         </button>
-        {/* Protection Order Modal */}
         <button type="button" onClick={() => setProtectionOrderModalOpen(true)}>
           Apply for Protection Order
         </button>
       </form>
 
-      {/* Protection Order Modal with Backdrop */}
       {protectionOrderModalOpen && (
         <div
           style={{
