@@ -30,6 +30,7 @@ import AddMostWanted from './pages/AddMostWanted';
 import ManageMostWanted from './pages/ManageMostWanted';
 import ListMostWanted from './pages/ListMostWanted';
 import ApplyProtectionForm from './pages/ApplyProtectionForm';
+import AnonymousTip from './pages/AnonymousTip';
 import './App.css';
 
 function AppContent() {
@@ -60,6 +61,7 @@ function AppContent() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/submit-tip" element={<AnonymousTip />} />
 
           {/* Protected Routes */}
           {!correctionalServiceAdded && role === 'police_officer' && (

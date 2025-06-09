@@ -64,6 +64,13 @@ function LandingPage() {
             <h3>Missing Person</h3>
             <p>Report a Missing Person here</p>
             </Link>
+          </div> 
+
+          <div  className="feature-card">
+          <Link to="/submit-tip">
+          <h3>Submit Anonymous Tip</h3>
+          <p>Submit your Anonymous Tip here</p>
+          </Link>
           </div>
           
           <Link to="/login">
@@ -73,7 +80,7 @@ function LandingPage() {
           </div>
           </Link>
         </div>
-      </section>
+      </section> 
 
       {/* Stats Section */}
       <section className="stats-section">
