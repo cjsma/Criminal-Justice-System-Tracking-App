@@ -30,6 +30,8 @@ import AddMostWanted from './pages/AddMostWanted';
 import ManageMostWanted from './pages/ManageMostWanted';
 import ListMostWanted from './pages/ListMostWanted';
 import ApplyProtectionForm from './pages/ApplyProtectionForm';
+import AddDocumentPage from './components/AddDocumentPage';
+import DocumentListViewer from './pages/DocumentListViewer';
 import './App.css';
 
 function AppContent() {
@@ -159,6 +161,8 @@ function AppContent() {
             }
           />
 
+          <Route path="/add-document" element={<AddDocumentPage />} />
+
           <Route
             path="/add-most-wanted"
             element={
@@ -176,6 +180,8 @@ function AppContent() {
               </ProtectedRoute>
             }
           />
+
+          <Route path="/document-list" element={<DocumentListViewer />} />
 
           {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />

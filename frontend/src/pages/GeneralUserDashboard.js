@@ -82,6 +82,13 @@ function GeneralUserDashboard() {
         >
           Wanted by Law
         </button>
+
+        <button
+          onClick={() => navigate('/add-document')}
+          className="bg-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          Upload Documents
+        </button>
       </div>
 
       {/* Cases List Section */}
