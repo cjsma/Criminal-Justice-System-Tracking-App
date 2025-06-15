@@ -14,12 +14,14 @@ function LandingPage() {
             alt="App Logo"
             className="logo"
           />
+          <div>
           <h1>Welcome to the Criminal Justice Tracking App</h1>
           <p className="hero-description">
             Ensuring a fair and effective criminal justice system that focuses
             on public safety, accountability, and supporting communities in
             seeking justice and healing.
           </p>
+          </div>
           <div className="hero-buttons">
             <Link to="/login" className="btn-primary">Log In</Link>
             <Link to="/Signup" className="btn-secondary">Sign Up</Link>
