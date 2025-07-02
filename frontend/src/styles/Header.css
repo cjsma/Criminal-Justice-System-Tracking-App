@@ -128,3 +128,67 @@
   background-color: white;
   color: #02b7ff;
 }
+
+/* Responsive Header */
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+  }
+
+  .logo {
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .nav {
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .nav ul {
+    gap: 15px;
+  }
+
+  .profile-section {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav ul li a {
+    font-size: 14px;
+  }
+
+  .profile {
+    gap: 8px;
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .login-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}

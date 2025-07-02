@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -48,7 +47,6 @@ body {
   padding: 20px;
 }
 
-/* Responsive Logo */
 .landing-page .logo {
   max-width: 100%;
   height: auto;
@@ -62,7 +60,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Hero Buttons */
 .landing-page .hero-buttons {
   display: flex;
   flex-direction: column;
@@ -361,7 +358,9 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive Adjustments for Landing Page */
+/* ========== Responsive Enhancements ========== */
+
+/* Tablet and Below */
 @media (max-width: 768px) {
   .landing-page .hero-section {
     padding: 60px 15px;
@@ -383,5 +382,91 @@ body {
 
   .landing-page .contact-content {
     padding: 30px 20px;
+  }
+}
+
+/* Mobile S - 320px */
+@media (max-width: 320px) {
+  .landing-page .hero-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .landing-page .btn-primary,
+  .landing-page .btn-secondary {
+    font-size: 0.85rem;
+    padding: 10px 18px;
+  }
+
+  .landing-page .contact-content {
+    width: 95%;
+  }
+}
+
+/* Mobile M - 375px */
+@media (max-width: 375px) {
+  .landing-page .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .landing-page .feature-card p,
+  .landing-page .mission-item p {
+    font-size: 0.95rem;
+  }
+
+  .landing-page .stat-card h3 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile L - 425px */
+@media (max-width: 425px) {
+  .landing-page .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .landing-page .stat-card p {
+    font-size: 1rem;
+  }
+
+  .landing-page .contact-method {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Laptop L - 1440px */
+@media (min-width: 1440px) {
+  .landing-page .hero-content {
+    max-width: 1000px;
+    font-size: 1.2rem;
+  }
+
+  .landing-page .feature-card,
+  .landing-page .mission-item {
+    max-width: 350px;
+  }
+}
+
+/* 4K - 2560px */
+@media (min-width: 2560px) {
+  .landing-page .hero-section {
+    min-height: 70vh;
+    padding: 120px 60px;
+  }
+
+  .landing-page .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .landing-page .btn-primary,
+  .landing-page .btn-secondary {
+    font-size: 1.2rem;
+    max-width: 280px;
+  }
+
+  .landing-page .feature-card,
+  .landing-page .mission-item,
+  .landing-page .stat-card {
+    transform: scale(1.1);
   }
 }

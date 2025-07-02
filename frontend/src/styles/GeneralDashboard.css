@@ -7,6 +7,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(29, 127, 232, 0.2);
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Hover effects only on larger screens */
@@ -17,8 +18,9 @@
     margin: 20px auto;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(29, 127, 232, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   .general-user-dashboard:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
@@ -26,7 +28,8 @@
 }
 
 /* Buttons */
-.logout-button {
+.logout-button,
+.action-button {
   padding: 8px 12px;
   background-color: #fbf5df;
   color: #333;
@@ -34,43 +37,26 @@
   border-radius: 6px;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   width: 100%;
   margin-bottom: 10px;
 }
 
-.action-button {
-  padding: 10px 15px;
-  background-color: #fbf5df;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-/* Button hover effects only on larger screens */
+/* Hover effects only on larger screens */
 @media (min-width: 768px) {
-  .logout-button {
-    width: auto;
-    margin-bottom: 0;
-  }
-  
+  .logout-button,
   .action-button {
     width: auto;
     margin-bottom: 0;
   }
-  
-  .logout-button:hover,
-  .action-button:hover {
-    transform: scale(1.05);
-  }
-  
+
   .logout-button:hover {
     background-color: #e04848;
+    transform: scale(1.05);
+  }
+
+  .action-button:hover {
+    transform: scale(1.05);
   }
 }
 
@@ -87,7 +73,7 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .action-button {
     width: auto;
     flex-grow: 1;
@@ -125,7 +111,7 @@
   .cases-grid {
     gap: 20px;
   }
-  
+
   .cases-list h2 {
     font-size: 1.6rem;
   }
@@ -138,7 +124,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-left: 4px solid #02b7ff;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 @media (min-width: 768px) {
@@ -148,7 +134,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-left: 5px solid #02b7ff;
   }
-  
+
   .case-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -174,7 +160,7 @@
     font-size: 1.4rem;
     margin-bottom: 10px;
   }
-  
+
   .case-card p {
     font-size: 1rem;
     margin: 5px 0;
@@ -200,12 +186,18 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 @media (min-width: 480px) {
   .edit-button {
     width: auto;
   }
+}
+
+.edit-button:hover {
+  background-color: #43a047;
+  transform: scale(1.05);
 }
 
 /* Messages */

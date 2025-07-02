@@ -5,6 +5,7 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* Boxes */
 .terms-box,
 .form-list-box {
   background: #fefefe;
@@ -25,6 +26,7 @@ ul {
   color: #333;
 }
 
+/* Accept Button */
 .accept-button {
   background: #00509e;
   color: #fff;
@@ -40,6 +42,7 @@ ul {
   background-color: #003f7d;
 }
 
+/* Forms Grid */
 .forms-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -47,6 +50,7 @@ ul {
   margin-top: 20px;
 }
 
+/* Form Cards */
 .form-card {
   background: #ffffff;
   border: 2px solid #00509e;
@@ -61,4 +65,55 @@ ul {
 .form-card:hover {
   transform: translateY(-5px);
   background-color: #f0f8ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .protection-order-page {
+    padding: 20px 15px;
+  }
+
+  .terms-box,
+  .form-list-box {
+    padding: 15px;
+  }
+
+  .accept-button {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+
+  .forms-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-card {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .protection-order-page {
+    padding: 15px 10px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  ul {
+    padding-left: 15px;
+    font-size: 0.9rem;
+  }
+
+  .accept-button {
+    font-size: 0.95rem;
+    padding: 12px 0;
+  }
+
+  .form-card {
+    font-size: 0.9rem;
+  }
 }

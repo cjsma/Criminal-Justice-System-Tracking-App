@@ -1,31 +1,31 @@
 .edit-case-container {
   max-width: 800px;
-  width: calc(100% - 2rem); /* Better mobile handling */
+  width: calc(100% - 2rem); /* Good for mobile */
   margin: 1rem auto;
   padding: 1.5rem;
   background-color: #caf0f8;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  box-sizing: border-box; /* Critical for mobile */
+  box-sizing: border-box;
 }
 
 .edit-case-header {
   display: flex;
-  flex-direction: column; /* Stack on mobile by default */
+  flex-direction: column; /* stack by default */
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
 .edit-case-header h2 {
   color: #2c3e50;
-  font-size: 1.5rem; /* Better mobile size */
+  font-size: 1.5rem; /* mobile-friendly */
   font-weight: 700;
-  margin: 0; /* Remove default margins */
-  order: 2; /* Title comes after button */
+  margin: 0;
+  order: 2; /* title after button */
 }
 
 .back-button {
-  align-self: flex-start; /* Better mobile alignment */
+  align-self: flex-start;
   padding: 0.6rem 1rem;
   background: linear-gradient(45deg, #7f8c8d, #95a5a6);
   color: white;
@@ -34,8 +34,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
-  font-size: 0.95rem; /* Better mobile size */
-  order: 1; /* Button comes first */
+  font-size: 0.95rem;
+  order: 1; /* button first */
 }
 
 .form-group {
@@ -47,7 +47,7 @@
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: #2c3e50;
-  font-size: 0.95rem; /* Better mobile readability */
+  font-size: 0.95rem;
 }
 
 .form-group textarea,
@@ -58,7 +58,7 @@
   border-radius: 6px;
   font-size: 1rem;
   background-color: #fefefe;
-  box-sizing: border-box; /* Prevent overflow */
+  box-sizing: border-box;
 }
 
 .form-group textarea {
@@ -66,7 +66,6 @@
   resize: vertical;
 }
 
-/* File sections */
 .existing-files,
 .selected-files {
   margin: 1rem 0;
@@ -77,51 +76,50 @@
 
 .existing-files h4,
 .selected-files h4 {
-  font-size: 1rem; /* Better mobile size */
+  font-size: 1rem;
 }
 
 .existing-files li,
 .selected-files li {
-  flex-direction: column; /* Stack on mobile */
+  display: flex; /* add display flex for layout */
+  flex-direction: column; /* stack on mobile */
   align-items: flex-start;
   gap: 0.5rem;
   padding: 0.8rem 0;
 }
 
 .existing-files a {
-  word-break: break-all; /* Handle long filenames */
+  word-break: break-word; /* slightly better for URLs/filenames */
 }
 
 .remove-file {
-  align-self: flex-end; /* Better mobile placement */
+  align-self: flex-end;
 }
 
-/* File upload */
 .file-upload-label {
-  display: block; /* Full width on mobile */
+  display: block;
   text-align: center;
   padding: 0.8rem;
   margin: 1rem 0;
 }
 
-/* Form actions */
 .form-actions {
   display: flex;
-  flex-direction: column; /* Stack buttons on mobile */
+  flex-direction: column;
   gap: 0.75rem;
   margin-top: 2rem;
 }
 
 .submit-button,
 .cancel-button {
-  width: 100%; /* Full width buttons */
+  width: 100%;
   padding: 0.9rem;
 }
 
 /* Messages */
 .success-message,
 .error-message {
-  font-size: 0.95rem; /* Better mobile size */
+  font-size: 0.95rem;
   padding: 0.8rem;
 }
 
@@ -131,32 +129,32 @@
   height: auto;
 }
 
-/* Tablet and larger */
+/* Tablet and larger screens */
 @media (min-width: 600px) {
   .edit-case-header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .edit-case-header h2 {
     order: 1;
     font-size: 1.75rem;
   }
-  
+
   .back-button {
     order: 2;
   }
-  
+
   .form-actions {
     flex-direction: row;
   }
-  
+
   .submit-button,
   .cancel-button {
     flex: 1;
   }
-  
+
   .existing-files li,
   .selected-files li {
     flex-direction: row;
@@ -169,7 +167,7 @@
   .edit-case-container {
     padding: 2rem;
   }
-  
+
   .form-group textarea,
   .form-group select {
     padding: 1rem;

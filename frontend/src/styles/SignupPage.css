@@ -5,13 +5,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 600px; /* Increased max width for a more spacious form */
+  max-width: 600px;
   margin: 60px auto;
   padding: 60px;
   background: #00b4d8;
   border-radius: 20px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 .signup-container .logo {
@@ -88,13 +89,14 @@ input[type='email'],
 input[type='tel'],
 input[type='password'],
 select {
-  width: auto;
+  width: 100%;
   padding: 15px;
   border-radius: 12px;
   border: 1px solid #ccc;
   font-size: 1.1rem;
   background-color: #ffffff;
   transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 /* Input focus effect */
@@ -113,7 +115,8 @@ select:focus {
 
 /* Submit button */
 button[type='submit'] {
-  width: 150px;
+  width: 100%;
+  max-width: 200px;
   padding: 16px;
   background: linear-gradient(90deg, #007bff, #0056b3);
   color: white;
@@ -125,33 +128,83 @@ button[type='submit'] {
   margin-top: 25px;
 }
 
-/* Button hover effect */
 button[type='submit']:hover {
   background: linear-gradient(90deg, #0056b3, #004099);
   transform: scale(1.05);
 }
 
-/* Button disabled state */
 button[type='submit']:disabled {
   background: #bbb;
   cursor: not-allowed;
   transform: none;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Accessibility */
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* ========== Responsive Media Queries ========== */
+
+/* Mobile S (≤320px) */
+@media (max-width: 320px) {
   .signup-container {
-    padding: 40px;
+    padding: 25px;
+    margin: 30px auto;
+  }
+
+  .signup-container h2 {
+    font-size: 1.3rem;
+  }
+
+  input,
+  select {
+    font-size: 0.85rem;
+    padding: 12px;
+  }
+
+  button[type='submit'] {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Mobile M (≤375px) */
+@media (max-width: 375px) {
+  .signup-container {
+    padding: 30px;
+  }
+
+  .signup-container h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Mobile L (≤425px) */
+@media (max-width: 425px) {
+  .signup-container {
+    padding: 35px;
+  }
+
+  .signup-container h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) {
+  .signup-container {
+    padding: 50px;
     max-width: 90%;
   }
 
   .signup-container h2 {
-    font-size: 2.5rem; /* Slightly reduced title size */
+    font-size: 2rem;
   }
 
-  input[type='text'],
-  input[type='email'],
-  input[type='password'],
+  input,
   select {
     font-size: 1rem;
   }
@@ -161,9 +214,49 @@ button[type='submit']:disabled {
   }
 }
 
-/* Accessibility enhancements */
-input:focus-visible,
-button:focus-visible {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
+/* Laptop (≥1024px) */
+@media (min-width: 1024px) {
+  .signup-container {
+    max-width: 650px;
+  }
+}
+
+/* Laptop L (≥1440px) */
+@media (min-width: 1440px) {
+  .signup-container {
+    max-width: 700px;
+    padding: 70px;
+  }
+
+  .signup-container h2 {
+    font-size: 2.2rem;
+  }
+
+  input,
+  select {
+    font-size: 1.15rem;
+  }
+}
+
+/* 4K (≥2560px) */
+@media (min-width: 2560px) {
+  .signup-container {
+    max-width: 900px;
+    padding: 90px;
+  }
+
+  .signup-container h2 {
+    font-size: 2.5rem;
+  }
+
+  input,
+  select {
+    font-size: 1.3rem;
+    padding: 18px;
+  }
+
+  button[type='submit'] {
+    font-size: 1.4rem;
+    padding: 18px 24px;
+  }
 }

@@ -3,12 +3,12 @@
 /* General container styling */
 .container {
   max-width: 600px;
+  width: 90%; /* Ensures padding on small screens */
   margin: 20px auto;
   padding: 20px;
   background: #caf0f8;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 90%; /* Ensures padding on small screens */
   box-sizing: border-box; /* Prevents overflow */
 }
 
@@ -37,6 +37,7 @@ textarea {
   border-radius: 5px;
   font-size: 1rem;
   box-sizing: border-box; /* Prevents overflow */
+  font-family: inherit;
 }
 
 textarea {
@@ -49,7 +50,7 @@ button {
   width: 100%; /* Full-width on mobile */
   max-width: 250px; /* Limits width on larger screens */
   padding: 12px;
-  margin: 25px auto 0 auto;
+  margin: 25px auto 0;
   background: #007bff;
   color: white;
   border: none;
@@ -57,10 +58,13 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-family: inherit;
 }
 
-button:hover {
+button:hover,
+button:focus {
   background: #0056b3;
+  outline: none;
 }
 
 /* Modal backdrop */
@@ -76,6 +80,7 @@ button:hover {
   align-items: center;
   padding: 15px; /* Prevents edge touching */
   box-sizing: border-box;
+  z-index: 1000;
 }
 
 .protection-order-content {
@@ -86,16 +91,18 @@ button:hover {
   max-width: 400px; /* Limits width on larger screens */
   text-align: center;
   box-sizing: border-box;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .protection-order-content button {
   width: 100%; /* Stack buttons vertically on mobile */
   max-width: 150px; /* Limits button width */
-  margin: 8px auto; /* Better spacing */
+  margin: 8px auto;
   display: inline-block; /* Allows side-by-side on larger screens */
+  font-family: inherit;
 }
 
-/* Media Queries for Larger Screens (Optional) */
+/* Media Queries for Larger Screens */
 @media (min-width: 768px) {
   .protection-order-content button {
     width: 48%; /* Side-by-side buttons on tablets/desktops */

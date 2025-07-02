@@ -3,16 +3,24 @@
   justify-content: center;
   align-items: center;
   padding: 3rem 1rem;
+  min-height: 100vh;
+  background: linear-gradient(to right, #0077cc, #00b4d8);
 }
 
 .most-wanted-box {
-  background: #fff;
+  background: #ffffff;
   padding: 2rem;
   max-width: 600px;
   width: 100%;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.most-wanted-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .most-wanted-box .logo {
@@ -21,8 +29,11 @@
 }
 
 .most-wanted-box h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 0.5rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .most-wanted-box h2 {
@@ -37,6 +48,7 @@
   gap: 1rem;
 }
 
+/* Primary Button */
 .action-button {
   background-color: #0077cc;
   color: #fff;
@@ -45,13 +57,15 @@
   border-radius: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .action-button:hover {
   background-color: #005fa3;
+  transform: scale(1.03);
 }
 
+/* Secondary Button */
 .btn-secondary {
   margin-top: 1.5rem;
   padding: 0.5rem 1rem;
@@ -60,8 +74,82 @@
   color: #333;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .btn-secondary:hover {
   background-color: #e6e6e6;
+}
+
+/* =========================== */
+/* Responsive Breakpoints      */
+/* =========================== */
+
+/* Mobile S (≤320px) */
+@media (max-width: 320px) {
+  .most-wanted-box {
+    padding: 1rem;
+  }
+
+  .most-wanted-box h1 {
+    font-size: 1.5rem;
+  }
+
+  .most-wanted-box h2 {
+    font-size: 1rem;
+  }
+
+  .action-button,
+  .btn-secondary {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Mobile M-L (≤425px) */
+@media (max-width: 425px) {
+  .most-wanted-box {
+    margin: 0 10px;
+  }
+
+  .buttons-container {
+    gap: 0.8rem;
+  }
+}
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) {
+  .most-wanted-box {
+    padding: 3rem;
+  }
+
+  .most-wanted-box h1 {
+    font-size: 2.2rem;
+  }
+
+  .most-wanted-box h2 {
+    font-size: 1.3rem;
+  }
+
+  .action-button {
+    font-size: 1.1rem;
+  }
+}
+
+/* Laptop (≥1024px) */
+@media (min-width: 1024px) {
+  .most-wanted-box {
+    max-width: 650px;
+  }
+}
+
+/* Laptop L / 4K (≥1440px) */
+@media (min-width: 1440px) {
+  .most-wanted-box {
+    max-width: 750px;
+  }
+
+  .action-button {
+    padding: 1rem 2rem;
+  }
 }
