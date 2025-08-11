@@ -5,7 +5,8 @@
   max-width: 600px;
   min-height: auto;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #f0f4ffc9;
+  border: 4px solid #00007aff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgb(0, 0, 0);
   margin: 20px auto;
@@ -13,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  
 }
 
 /* Logo */
