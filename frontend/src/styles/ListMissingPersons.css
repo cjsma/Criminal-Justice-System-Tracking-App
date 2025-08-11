@@ -1,5 +1,7 @@
 /* Base Container Styles */
 .list-missing-persons-container {
+  background-color: #f0f4ffc9;
+  border: 4px solid #00007aff;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
