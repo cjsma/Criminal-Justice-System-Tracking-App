@@ -8,7 +8,7 @@ const Footer = () => {
         <p>
           &copy; {new Date().getFullYear()} Criminal Justice System Tracking App
         </p>
-        <p>All rights reserved</p>
+        <p>All rights reserved.</p>
       </div>
     </footer>
   );

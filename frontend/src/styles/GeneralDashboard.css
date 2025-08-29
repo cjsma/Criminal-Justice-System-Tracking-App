@@ -3,7 +3,7 @@
   width: 100%;
   margin: 10px auto;
   padding: 20px 15px;
- background-color: #f0f4ffc9;
+  background-color: #f0f4ffc9;
   border: 4px solid #00007aff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(29, 127, 232, 0.2);
@@ -143,7 +143,7 @@
 }
 
 .case-card h3 {
-  color: #02b7ff;
+  color: #00509e;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 8px;

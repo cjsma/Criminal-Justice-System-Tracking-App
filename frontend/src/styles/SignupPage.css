@@ -31,11 +31,10 @@
 .signup-container h2 {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #00509e;
   margin-bottom: 35px;
   text-align: center;
   letter-spacing: 1px;
-  text-transform: uppercase;
 }
 
 /* Error message */

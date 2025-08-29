@@ -75,7 +75,7 @@ function SignupPage() {
         alt="App Logo"
         className="logo"
       />
-      <h2>Sign Up</h2>
+      <h2>Welcome! Create your Account.</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleSignUp}>
         <input
