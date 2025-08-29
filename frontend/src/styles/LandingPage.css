@@ -1,16 +1,24 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  color: #333;
+  color: white;
   line-height: 1.6;
   background-color: #f9f9f9;
 }
 
-/* ==================== */
-/* LANDING PAGE STYLES */
-/* ==================== */
 .landing-page {
   text-align: center;
+}
+
+.landing-page h1 {
+  color: white;
+  font-size: 4rem;
+  font-weight: 600;
+  font-style: normal;
+}
+.landing-page p {
+  color: white;
+  font-size: 1.5rem;
 }
 
 /* Hero Section with Background Image */
@@ -40,6 +48,11 @@ body {
 }
 
 .landing-page .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #1281f1;
   position: relative;
   z-index: 2;
   max-width: 800px;
@@ -48,9 +61,10 @@ body {
 }
 
 .landing-page .logo {
+  margin-bottom: 20px;
   max-width: 100%;
   height: auto;
-  max-height: 150px;
+  max-height: 300px;
   display: block;
   margin: 0 auto 30px;
   transition: transform 0.3s ease;
@@ -88,8 +102,6 @@ body {
   text-decoration: none;
   display: inline-block;
 }
-
-
 
 .landing-page .btn-primary {
   background-color: #1281f1;

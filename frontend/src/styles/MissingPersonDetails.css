@@ -19,15 +19,16 @@
 }
 
 .details-header h1 {
-  color: #2c3e50;
+  color: #00509e;
   margin: 0;
   font-size: 2rem;
+  text-align: center;
 }
 
 .back-button {
   background: none;
   border: none;
-  color: #3498db;
+  color: #00509e;
   font-size: 1rem;
   cursor: pointer;
   display: flex;
@@ -101,7 +102,7 @@
 
 .info-item h3 {
   margin: 0 0 8px 0;
-  color: #3498db;
+  color: #00509e;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -123,7 +124,7 @@
 .description-section h3,
 .additional-info h3,
 .contact-info h3 {
-  color: #3498db;
+  color: #00509e;
   margin-bottom: 10px;
   font-size: 1.2rem;
 }

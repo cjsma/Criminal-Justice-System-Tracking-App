@@ -14,7 +14,6 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  
 }
 
 /* Logo */
@@ -28,10 +27,9 @@
 .login-container h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #3a3838;
+  color: #00509e;
   margin-bottom: 20px;
   text-align: center;
-  text-transform: uppercase;
 }
 
 /* Error message */

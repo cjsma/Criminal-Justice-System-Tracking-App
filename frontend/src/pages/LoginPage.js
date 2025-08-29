@@ -77,7 +77,7 @@ function LoginPage() {
         alt="App Logo"
         className="logo"
       />
-      <h2>Login</h2>
+      <h2>Welcome back, Login to Access your Dashboard!</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
         <input
