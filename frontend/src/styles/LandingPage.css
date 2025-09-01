@@ -89,10 +89,8 @@ body {
   }
 }
 
-.landing-page .btn-primary,
-.landing-page .btn-secondary {
-  width: 100%;
-  max-width: 220px;
+/* .landing-page .btn-primary:hover {
+  max-width: 1px;
   padding: 12px 25px;
   border-radius: 8px;
   cursor: pointer;
@@ -101,19 +99,20 @@ body {
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
-}
+} */
 
 .landing-page .btn-primary {
   background-color: #1281f1;
   color: white;
   border: 2px solid #004080;
+  font-family: sans-serif;
 }
 
-.landing-page .btn-secondary {
+/* .landing-page .btn-secondary {
   background-color: #1281f1;
   color: white;
   border: 2px solid #004080;
-}
+} */
 
 .landing-page .btn-primary:hover {
   background-color: #006cd7;
