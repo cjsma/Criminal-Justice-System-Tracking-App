@@ -17,7 +17,6 @@ const MissingPersons = () => {
   return (
     <div className="missing-persons-container">
       <div className="missing-persons-box">
-        <img src={logo} alt="Organization Logo" className="logo" />
         <h1>Missing Persons</h1>
 
         {/* New small heading */}
