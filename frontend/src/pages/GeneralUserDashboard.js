@@ -78,38 +78,45 @@ function GeneralUserDashboard() {
       <div className="action-options">
         <div onClick={() => navigate('/casesPage')} className="option-card">
           <FilePlus size={28} className="option-icon" />
-          <span>Your Cases</span>
-          <span className="case-count-badge">{cases.length}</span>
+          <h3>Your Cases</h3>
+           <p>View all cases you have submitted or are involved in.</p>
+          <h3 className="case-count-badge">{cases.length}</h3>
         </div>
 
         <div onClick={() => navigate('/missingPerson')} className="option-card">
           <UserMinus size={28} className="option-icon" />
-          <span>Report Missing Person</span>
+          <h3>Report Missing Person</h3>
+          <p>Submit and track missing persons reports.</p>
         </div>
 
         <div onClick={() => navigate('/addCase')} className="option-card">
           <FilePlus size={28} className="option-icon" />
-          <span>Add New Case</span>
+          <h3>Add New Case</h3>
+          <p>Create a new criminal case record.</p>
         </div>
 
         <div onClick={() => navigate('/apply-protection')} className="option-card">
           <Shield size={28} className="option-icon" />
-          <span>Apply for Protection Order</span>
+          <h3>Apply for Protection Order</h3>
+          <p>Start and manage protection order requests.</p>
         </div>
 
         <div onClick={() => navigate('/mostWanted')} className="option-card">
           <Search size={28} className="option-icon" />
-          <span>Wanted by Law</span>
+          <h3>Wanted by Law</h3>
+          <p>View the most wanted list.</p>
         </div>
 
         <div onClick={() => navigate('/add-document')} className="option-card">
           <FileUp size={28} className="option-icon" />
-          <span>Upload Documents</span>
+          <h3>Upload Documents</h3>
+           <p>Submit documents related to your cases.</p>
         </div>
 
         <div onClick={() => navigate('/document-list')} className="option-card">
           <File size={28} className="option-icon" />
-          <span>View Documents</span>
+          <h3>View Documents</h3>
+          <p>Access all your uploaded case documents.</p>
         </div>
       </div>
 
