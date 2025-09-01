@@ -32,6 +32,8 @@ import ListMostWanted from './pages/ListMostWanted';
 import ApplyProtectionForm from './pages/ApplyProtectionForm';
 import AddDocumentPage from './components/AddDocumentPage';
 import DocumentListViewer from './pages/DocumentListViewer';
+import CasesPage from './pages/CasesPage'
+
 // src/index.js or src/App.js
 import '@fontsource/inter/300.css';       // Light weight
 import '@fontsource/inter/400.css';       // Regular weight
@@ -107,6 +109,16 @@ function AppContent() {
               </ProtectedRoute>
             }
           />
+          
+          <Route
+            path="/casesPage"
+            element={
+              <ProtectedRoute allowedRoles={['police_officer', 'general_user']}>
+                <CasesPage />
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/missingPerson"
             element={
