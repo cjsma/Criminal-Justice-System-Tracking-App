@@ -32,7 +32,12 @@ import ListMostWanted from './pages/ListMostWanted';
 import ApplyProtectionForm from './pages/ApplyProtectionForm';
 import AddDocumentPage from './components/AddDocumentPage';
 import DocumentListViewer from './pages/DocumentListViewer';
-
+// src/index.js or src/App.js
+import '@fontsource/inter/300.css';       // Light weight
+import '@fontsource/inter/400.css';       // Regular weight
+import '@fontsource/inter/500.css';       // Medium weight
+import '@fontsource/inter/600.css';       // Semi-bold weight
+import '@fontsource/inter/700.css';       // Bold weight
 import AnonymousTip from './pages/AnonymousTip';
 import './App.css';
 
@@ -135,7 +140,7 @@ function AppContent() {
           <Route
             path="/apply-protection"
             element={
-              <ProtectedRoute allowedRoles={['general_user']}>
+              <ProtectedRoute allowedRoles={['general_user', 'police_officer']}>
                 <ApplyProtectionForm />
               </ProtectedRoute>
             }

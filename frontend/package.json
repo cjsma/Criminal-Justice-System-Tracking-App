@@ -5,6 +5,8 @@
   "dependencies": {
     "@firebase/auth": "^1.10.6",
     "@firebase/firestore": "^4.7.16",
+    "@fontsource/inter": "^5.2.6",
+    "@fontsource/open-sans": "^5.2.6",
     "@supabase/supabase-js": "^2.49.8",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^14.0.0",

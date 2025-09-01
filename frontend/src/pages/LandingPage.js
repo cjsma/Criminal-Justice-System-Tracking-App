@@ -72,7 +72,7 @@ function LandingPage() {
             <Link to="/login" className="btn-primary">
               Log In
             </Link>
-            <Link to="/Signup" className="btn-secondary">
+            <Link to="/Signup" className="btn-primary">
               Sign Up
             </Link>
           </div>

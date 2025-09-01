@@ -11,6 +11,20 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dashboard-header h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
 /* Heading */
 .report-missing-person-container h1 {
   text-align: center;
