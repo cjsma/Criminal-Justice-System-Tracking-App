@@ -5,80 +5,81 @@
   padding: 20px 15px;
   background-color: #f0f4ffc9;
   border: 4px solid #00007aff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(29, 127, 232, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(29, 127, 232, 0.25);
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Hover effects only on larger screens */
+/* Hover effects for larger screens */
 @media (min-width: 768px) {
   .general-user-dashboard {
     max-width: 1200px;
     padding: 30px;
     margin: 20px auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(29, 127, 232, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-
   .general-user-dashboard:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   }
 }
 
-/* Buttons */
-.logout-button,
-.action-button {
-  padding: 8px 12px;
-  background-color: #fbf5df;
+/* Option Cards Container */
+.action-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 600px) {
+  .action-options {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* Individual Option Card */
+.option-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: #333;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-/* Hover effects only on larger screens */
-@media (min-width: 768px) {
-  .logout-button,
-  .action-button {
-    width: auto;
-    margin-bottom: 0;
-  }
-
-  .logout-button:hover {
-    background-color: #e04848;
-    transform: scale(1.05);
-  }
-
-  .action-button:hover {
-    transform: scale(1.05);
-  }
-}
-
-/* Action Buttons Container */
-.action-buttons {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-@media (min-width: 480px) {
-  .action-buttons {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+.option-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+  border-color: #02b7ff;
+}
 
-  .action-button {
-    width: auto;
-    flex-grow: 1;
-  }
+/* Icon inside option card */
+.option-icon {
+  font-size: 1.8rem;
+  color: #02b7ff;
+}
+
+/* Badge for Your Cases */
+.case-count-badge {
+  background: #02b7ff;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 4px;
 }
 
 /* Cases Section */
@@ -88,117 +89,104 @@
 
 .cases-list h2 {
   color: #444;
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
 /* Case Grid */
 .cases-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  gap: 18px;
   padding: 5px;
 }
 
 @media (min-width: 480px) {
   .cases-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
   }
 }
 
 @media (min-width: 768px) {
   .cases-grid {
-    gap: 20px;
-  }
-
-  .cases-list h2 {
-    font-size: 1.6rem;
+    gap: 22px;
   }
 }
 
 /* Case Card */
 .case-card {
   background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #02b7ff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #02b7ff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-@media (min-width: 768px) {
-  .case-card {
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #02b7ff;
-  }
-
-  .case-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
+.case-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .case-card h3 {
   color: #00509e;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .case-card p {
   color: #555;
-  font-size: 0.9rem;
-  margin: 4px 0;
+  font-size: 0.95rem;
+  margin: 5px 0;
   line-height: 1.4;
 }
 
-@media (min-width: 768px) {
-  .case-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-  }
-
-  .case-card p {
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-}
-
-/* Status Styling */
+/* Status Badges */
 .status-open,
 .status-closed,
 .status-in-progress {
-  font-weight: bold;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.status-open {
+  background: #d1fae5;
+  color: #16a34a;
+}
+
+.status-closed {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status-in-progress {
+  background: #fef3c7;
+  color: #b45309;
 }
 
 /* Edit Button */
 .edit-button {
-  width: 100%;
-  margin-top: 8px;
+  margin-top: 10px;
   background-color: #4caf50;
   color: white;
-  padding: 6px 12px;
+  padding: 7px 14px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-@media (min-width: 480px) {
-  .edit-button {
-    width: auto;
-  }
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .edit-button:hover {
   background-color: #43a047;
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
 /* Messages */
@@ -208,15 +196,87 @@
   text-align: center;
   font-size: 1rem;
   color: #777;
-  margin-top: 15px;
+  margin-top: 18px;
   line-height: 1.5;
 }
 
-@media (min-width: 768px) {
-  .loading-message,
-  .error-message,
-  .no-cases-message {
-    font-size: 1.1rem;
-    margin-top: 20px;
-  }
+.error-message {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.no-cases-message {
+  background: #f3f4f6;
+  color: #444;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* Modal Styling */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.btn-primary, .btn-secondary, .btn-cancel {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background: #02b7ff;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #0289cc;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #333;
+}
+.btn-secondary:hover {
+  background: #e2e4e8;
+  transform: translateY(-2px);
+}
+
+.btn-cancel {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.btn-cancel:hover {
+  background: #fca5a5;
+  transform: translateY(-2px);
 }

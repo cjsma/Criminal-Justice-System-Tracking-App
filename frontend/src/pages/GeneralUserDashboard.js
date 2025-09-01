@@ -10,6 +10,7 @@ import {
 } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import '../styles/GeneralDashboard.css';
+import { FilePlus, UserMinus, Shield, FileUp, Search, File } from "lucide-react";
 
 function GeneralUserDashboard() {
   const navigate = useNavigate();
@@ -73,94 +74,49 @@ function GeneralUserDashboard() {
 
       {error && <div className="alert alert-error">{error}</div>}
 
-      <div className="action-buttons">
-        <button
-          onClick={() => navigate('/missingPerson')}
-          className="action-button"
-        >
-          Report Missing Person
-        </button>
-        <button onClick={() => navigate('/addCase')} className="action-button">
-          Add New Case
-        </button>
-        <button
-          onClick={() => navigate('/apply-protection')}
-          className="action-button protection-order-btn"
-        >
-          Apply for Protection Order
-        </button>
-        <button
-          onClick={() => navigate('/mostWanted')}
-          className="action-button"
-        >
-          Wanted by Law
-        </button>
-        <button
-          onClick={() => navigate('/add-document')}
-          className="bg-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-        >
-          Upload Documents
-        </button>
+      {/* Dashboard Options */}
+      <div className="action-options">
+        <div onClick={() => navigate('/casesPage')} className="option-card">
+          <FilePlus size={28} className="option-icon" />
+          <span>Your Cases</span>
+          <span className="case-count-badge">{cases.length}</span>
+        </div>
+
+        <div onClick={() => navigate('/missingPerson')} className="option-card">
+          <UserMinus size={28} className="option-icon" />
+          <span>Report Missing Person</span>
+        </div>
+
+        <div onClick={() => navigate('/addCase')} className="option-card">
+          <FilePlus size={28} className="option-icon" />
+          <span>Add New Case</span>
+        </div>
+
+        <div onClick={() => navigate('/apply-protection')} className="option-card">
+          <Shield size={28} className="option-icon" />
+          <span>Apply for Protection Order</span>
+        </div>
+
+        <div onClick={() => navigate('/mostWanted')} className="option-card">
+          <Search size={28} className="option-icon" />
+          <span>Wanted by Law</span>
+        </div>
+
+        <div onClick={() => navigate('/add-document')} className="option-card">
+          <FileUp size={28} className="option-icon" />
+          <span>Upload Documents</span>
+        </div>
+
+        <div onClick={() => navigate('/document-list')} className="option-card">
+          <File size={28} className="option-icon" />
+          <span>View Documents</span>
+        </div>
       </div>
 
-      {/* Cases List Section */}
-      <CasesList
-        loading={loading}
-        error={error}
-        cases={cases}
-        navigate={navigate}
-      />
     </div>
   );
 }
 
-// ========== Cases List Component ==========
-const CasesList = ({ loading, error, cases, navigate }) => {
-  if (loading) return <p className="loading-message">Loading cases...</p>;
-  if (error) return <p className="error-message">{error}</p>;
-  if (cases.length === 0)
-    return <p className="no-cases-message">No cases found.</p>;
-
-  return (
-    <div className="cases-list">
-      <h2>Your Cases</h2>
-      <div className="cases-grid">
-        {cases.map((caseItem) => (
-          <CaseCard key={caseItem.id} caseItem={caseItem} navigate={navigate} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// ========== Individual Case Card ==========
-const CaseCard = ({ caseItem, navigate }) => (
-  <div className="case-card" onClick={() => navigate(`/case/${caseItem.id}`)}>
-    <h3>Case Number: {caseItem.caseNumber}</h3>
-    <p>
-      <strong>Assigned Officer:</strong>{' '}
-      {caseItem.assignedOfficer || 'Not assigned'}
-    </p>
-    <p>
-      <strong>Police Station:</strong> {caseItem.policeStation}
-    </p>
-    <p>
-      <strong>Status:</strong>{' '}
-      <span className={`status-${caseItem.status.toLowerCase()}`}>
-        {caseItem.status}
-      </span>
-    </p>
-    <button
-      onClick={(e) => {
-        e.stopPropagation();
-        navigate(`/edit-case/${caseItem.id}`);
-      }}
-      className="edit-button"
-    >
-      Edit
-    </button>
-  </div>
-);
 
 // ========== Protection Order Modal ==========
 const ProtectionOrderModal = ({

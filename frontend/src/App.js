@@ -32,6 +32,7 @@ import ListMostWanted from './pages/ListMostWanted';
 import ApplyProtectionForm from './pages/ApplyProtectionForm';
 import AddDocumentPage from './components/AddDocumentPage';
 import DocumentListViewer from './pages/DocumentListViewer';
+import CasesPage from './pages/CasesPage'
 
 import AnonymousTip from './pages/AnonymousTip';
 import './App.css';
@@ -102,6 +103,16 @@ function AppContent() {
               </ProtectedRoute>
             }
           />
+          
+          <Route
+            path="/casesPage"
+            element={
+              <ProtectedRoute allowedRoles={['police_officer', 'general_user']}>
+                <CasesPage />
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/missingPerson"
             element={
