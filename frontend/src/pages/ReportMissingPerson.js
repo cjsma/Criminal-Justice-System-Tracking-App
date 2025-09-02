@@ -4,6 +4,7 @@ import { db, storage } from '../firebase'; // Import Firestore and Storage
 import { collection, addDoc } from 'firebase/firestore'; // Import Firestore functions
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Import Storage functions
 import '../styles/ReportMissingPerson.css'; // Import the new CSS file
+import BackButton from '../components/BackButton';
 
 const ReportMissingPerson = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +31,7 @@ const ReportMissingPerson = () => {
     await uploadBytes(fileRef, file);
     return await getDownloadURL(fileRef);
   };
+  
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -144,6 +146,7 @@ const ReportMissingPerson = () => {
         <button type="submit" disabled={uploading}>
           {uploading ? 'Submitting...' : 'Submit Report'}
         </button>
+        <BackButton/>
       </form>
     </div>
   );

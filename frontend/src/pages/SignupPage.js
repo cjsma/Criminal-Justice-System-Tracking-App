@@ -6,6 +6,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import '../styles/SignupPage.css';
+import BackButton from '../components/BackButton';
 
 function SignupPage() {
   const [firstName, setFirstName] = useState('');
@@ -18,6 +19,7 @@ function SignupPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+   
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -129,15 +131,7 @@ function SignupPage() {
           {loading ? 'Signing Up...' : 'Sign Up'}
         </button>
       </form>
-      <div className="signup-actions">
-        <button
-          type="button"
-          className="btn-secondary"
-          onClick={() => navigate('/')}
-        >
-          Go Back Home
-        </button>
-      </div>
+      <BackButton/>
     </div>
   );
 }

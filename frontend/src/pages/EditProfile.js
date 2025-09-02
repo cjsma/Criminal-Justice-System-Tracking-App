@@ -5,6 +5,8 @@ import { doc, updateDoc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import '../styles/EditProfile.css';
+import BackButton from '../components/BackButton';
+
 
 function EditProfile() {
   const [name, setName] = useState('');
@@ -13,6 +15,7 @@ function EditProfile() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
+   
 
   // Load current profile data when component mounts
   useEffect(() => {
@@ -142,6 +145,7 @@ function EditProfile() {
         >
           Cancel
         </button>
+       <BackButton/>
       </form>
     </div>
   );

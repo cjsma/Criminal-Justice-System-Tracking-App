@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import BackButton from '../components/BackButton';
 
 const ListMostWanted = () => {
   const [list, setList] = useState([]);
+   
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +31,7 @@ const ListMostWanted = () => {
           </li>
         ))}
       </ul>
+      <BackButton/>
     </div>
   );
 };

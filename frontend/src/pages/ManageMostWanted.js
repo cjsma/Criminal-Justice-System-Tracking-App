@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import '../styles/ManageMostWanted.css';
+import BackButton from '../components/BackButton';
 
 const ManageMostWanted = () => {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+   
 
   const fetchData = async () => {
     try {
@@ -64,6 +66,7 @@ const ManageMostWanted = () => {
               >
                 Delete Entry
               </button>
+              <BackButton/>
             </li>
           ))}
         </ul>

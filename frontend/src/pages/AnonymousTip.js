@@ -6,6 +6,8 @@ import { httpsCallable } from 'firebase/functions';
 import { v4 as uuidv4 } from 'uuid';
 import '../styles/AnonymousTip.css';
 import tipImage from '../assets/tip-hero.png'; // Make sure to add this image to your assets
+import BackButton from '../components/BackButton';
+
 
 const AnonymousTip = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +24,7 @@ const AnonymousTip = () => {
   const [submissionId, setSubmissionId] = useState(null);
   const [error, setError] = useState(null);
   const fileInputRef = useRef(null);
+   
 
   // Security config
   const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
@@ -376,6 +379,9 @@ const AnonymousTip = () => {
                 </>
               ) : 'Submit Tip Anonymously'}
             </button>
+            
+            <BackButton/>
+
           </div>
         </form>
       )}

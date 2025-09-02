@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import protectionForms from '../data/protectionForms';
 import '../styles/ApplyProtectionForm.css';
+import BackButton from '../components/BackButton';
+
 
 const ApplyProtectionForm = () => {
   const [accepted, setAccepted] = useState(false);
+   
 
   return (
     <div className="protection-order-page">
@@ -75,7 +78,10 @@ const ApplyProtectionForm = () => {
             ))}
           </div>
         </div>
+
       )}
+
+      <BackButton/>
     </div>
   );
 };

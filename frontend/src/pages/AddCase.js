@@ -12,6 +12,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/AddCaseForm.css';
 import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
+
 
 function AddCaseForm() {
   const navigate = useNavigate();
@@ -355,6 +357,9 @@ function AddCaseForm() {
             >
               Cancel
             </button>
+            
+            <BackButton/>
+
           </div>
         </div>
       )}

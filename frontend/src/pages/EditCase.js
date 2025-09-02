@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import '../styles/EditCase.css';
+import BackButton from '../components/BackButton';
+
 
 function EditCase() {
   const { id } = useParams();
@@ -12,6 +14,7 @@ function EditCase() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+   
 
   useEffect(() => {
     const fetchCase = async () => {
@@ -123,6 +126,8 @@ function EditCase() {
           >
             Cancel
           </button>
+
+         <BackButton/>
         </div>
       </form>
     </div>

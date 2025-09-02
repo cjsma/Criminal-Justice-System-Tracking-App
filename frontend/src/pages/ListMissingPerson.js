@@ -3,12 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import '../styles/ListMissingPersons.css';
+import BackButton from '../components/BackButton';
+
 
 const ListMissingPersons = () => {
   const [missingPersons, setMissingPersons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchMissingPersons = async () => {
@@ -113,6 +116,9 @@ const ListMissingPersons = () => {
               >
                 View Details
               </button>
+              
+              <BackButton/>
+            
             </div>
           ))}
         </div>
