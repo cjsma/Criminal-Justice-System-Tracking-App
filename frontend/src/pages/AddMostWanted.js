@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import '../styles/AddMostWanted.css';
+import BackButton from '../components/BackButton';
 
 const AddMostWanted = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ const AddMostWanted = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -83,6 +85,8 @@ const AddMostWanted = () => {
         <button type="submit" className="submit-btn" disabled={isSubmitting}>
           {isSubmitting ? 'Adding...' : 'Add to Most Wanted'}
         </button>
+
+       <BackButton/>
       </form>
     </div>
   );

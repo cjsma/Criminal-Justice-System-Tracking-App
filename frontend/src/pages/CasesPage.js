@@ -3,12 +3,15 @@ import { db, auth } from '../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import '../styles/GeneralDashboard.css';
+import BackButton from '../components/BackButton';
+
 
 const CasesPage = () => {
   const navigate = useNavigate();
   const [cases, setCases] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+   
 
   useEffect(() => {
     const fetchCases = async () => {
@@ -44,6 +47,7 @@ const CasesPage = () => {
           <CaseCard key={caseItem.id} caseItem={caseItem} navigate={navigate} />
         ))}
       </div>
+       <BackButton/>
     </div>
   );
 };
@@ -63,6 +67,7 @@ const CaseCard = ({ caseItem, navigate }) => (
     >
       Edit
     </button>
+   
   </div>
 );
 

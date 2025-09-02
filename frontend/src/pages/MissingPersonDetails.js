@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import '../styles/MissingPersonDetails.css';
+import BackButton from '../components/BackButton';
 
 const MissingPersonDetails = () => {
   const { id } = useParams();
@@ -10,6 +11,7 @@ const MissingPersonDetails = () => {
   const [person, setPerson] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+ 
 
   useEffect(() => {
     const fetchPersonDetails = async () => {
@@ -152,6 +154,7 @@ const MissingPersonDetails = () => {
         >
           View All Missing Persons
         </button>
+       <BackButton/>
       </div>
     </div>
   );

@@ -3,10 +3,12 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import '../styles/MostWanted.css';
 import { PlusCircle, Edit3, Search } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const MostWanted = () => {
   const { role } = useAuth();
   const navigate = useNavigate();
+ 
 
   return (
     <div className="general-user-dashboard">
@@ -37,6 +39,7 @@ const MostWanted = () => {
           <h3>View Most Wanted List</h3>
           <p>See all individuals currently wanted by law enforcement.</p>
         </div>
+        <BackButton/>
       </div>
     </div>
   );

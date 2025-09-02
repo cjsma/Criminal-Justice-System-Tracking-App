@@ -1,0 +1,17 @@
+.back-btn {
+  padding: 10px 20px;
+  background-color: #ddd; /* light gray button */
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 15px;
+}
+
+.back-btn:hover {
+  background-color: #ccc;
+  transform: translateY(-2px);
+}

@@ -2,9 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'; // Import the logo from local assets
 import '../styles/MissingPerson.css'; // Import CSS for styling
+import BackButton from '../components/BackButton';
 
 const MissingPersons = () => {
   const navigate = useNavigate();
+   
 
   const handleButtonClick = (option) => {
     if (option === 'report') {
@@ -38,15 +40,7 @@ const MissingPersons = () => {
             List of Missing Persons
           </button>
         </div>
-        <div className="signup-actions">
-          <button
-            type="button"
-            className="btn-secondary"
-            onClick={() => navigate(-1)}
-          >
-            Go back
-          </button>
-        </div>
+       <BackButton/>
       </div>
     </div>
   );

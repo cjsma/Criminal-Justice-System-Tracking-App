@@ -11,6 +11,8 @@ import {
 import { useNavigate } from 'react-router-dom';
 import '../styles/GeneralDashboard.css';
 import { FilePlus, UserMinus, Shield, FileUp, Search, File } from "lucide-react";
+import BackButton from '../components/BackButton';
+
 
 function GeneralUserDashboard() {
   const navigate = useNavigate();
@@ -18,6 +20,7 @@ function GeneralUserDashboard() {
   const [userName, setUserName] = useState(''); // Stores logged-in user's name
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+   
 
   // Fetch user info and cases
   useEffect(() => {
@@ -167,9 +170,10 @@ const ProtectionOrderModal = ({
           <button onClick={onClose} className="btn-secondary">
             Save Draft
           </button>
-          <button onClick={onClose} className="btn-cancel">
-            Cancel
-          </button>
+      
+          
+          <BackButton/>
+        
         </div>
       </div>
     </div>

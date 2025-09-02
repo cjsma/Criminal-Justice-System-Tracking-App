@@ -6,6 +6,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { ClipLoader, SomeSpinnerComponent } from 'react-spinners'; // For the loading spinner
 import '../styles/Login.css';
+import BackButton from '../components/BackButton';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -14,6 +15,7 @@ function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+   
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -102,15 +104,7 @@ function LoginPage() {
           {loading ? <ClipLoader size={20} color="#ffffff" /> : 'Login'}
         </button>
       </form>
-      <div className="signup-actions">
-        <button
-          type="button"
-          className="btn-secondary"
-          onClick={() => navigate('/')}
-        >
-          Go Back Home
-        </button>
-      </div>
+      <BackButton/>
     </div>
   );
 }

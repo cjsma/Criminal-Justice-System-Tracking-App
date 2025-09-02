@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+import BackButton from '../components/BackButton';
+
 
 function DocumentListViewer() {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+   
 
   useEffect(() => {
     const fetchDocuments = async () => {
@@ -65,6 +68,7 @@ function DocumentListViewer() {
           </li>
         ))}
       </ul>
+      <BackButton/>
     </div>
   );
 }

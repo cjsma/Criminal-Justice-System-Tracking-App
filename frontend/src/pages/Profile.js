@@ -9,6 +9,7 @@ function Profile() {
   const [policeInfo, setPoliceInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+   
 
   useEffect(() => {
     if (role === 'police_officer' && currentUser?.uid) {
